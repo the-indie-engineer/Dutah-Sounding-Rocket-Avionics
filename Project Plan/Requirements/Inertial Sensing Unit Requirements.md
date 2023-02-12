@@ -2,10 +2,12 @@
 <h1 style="font-size:10vw">Requirement Analysis Document</h1>
 
 <div align="left">
+  
+  
 **Subsystem:** Inertial Sensing Unit
 **Last date of revision:** 02-02-2023
-Document status:** Draft
-****Authors:** Thiruvarulselvan K
+**Document status:** Draft
+**Authors:** Thiruvarulselvan K
 
 _**Revision history:**_
 _1. First draft completion- 02/02/2023
