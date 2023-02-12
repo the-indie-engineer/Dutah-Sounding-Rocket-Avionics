@@ -1,4 +1,4 @@
-<p align="center">
+:-:
 ******Requirement Analysis Document******
 
 **Subsystem:** Inertial Sensing Unit
