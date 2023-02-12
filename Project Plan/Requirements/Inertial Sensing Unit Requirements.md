@@ -1,6 +1,7 @@
 <div align="center">
-****Requirement Analysis Document****
+<strong>Requirement Analysis Document
 
+<div align="left">
 **Subsystem:** Inertial Sensing Unit
 **Last date of revision:** 02-02-2023
 Document status:** Draft
