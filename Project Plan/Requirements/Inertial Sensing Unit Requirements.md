@@ -1,5 +1,5 @@
 <div align="center">
-<strong>Requirement Analysis Document
+<h1 style="font-size:10vw">Requirement Analysis Document</h1>
 
 <div align="left">
 **Subsystem:** Inertial Sensing Unit
