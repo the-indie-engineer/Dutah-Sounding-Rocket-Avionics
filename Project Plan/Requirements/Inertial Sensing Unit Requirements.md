@@ -42,6 +42,9 @@ Measure the essential parameters of the rocket and communicate with the CPM
 **System Model:**
   
   ![ISU Model](https://user-images.githubusercontent.com/109530150/218327323-2ffa277a-8629-460c-acb1-b67c4c3606ad.png)
-                                                          Image credits: Geethika
+
+  <div align="center">
+
+  Image credits: Geethika
   
 [Requirement Analysis Document ISU.docx](https://github.com/the-indie-engineer/Data-Acquisition-and-Recovery-System-for-sounding-rockets-Dutah-/files/10716772/Requirement.Analysis.Document.ISU.docx)
