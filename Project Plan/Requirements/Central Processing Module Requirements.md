@@ -27,7 +27,7 @@ MFS - Motor Firing System
   
 RTC - Real Time Clock
 
-**Purpose of the subsystem: **
+**Purpose of the subsystem:**
   
 Processing the ISU data, managing the data in the storage, and controlling the Parachute Deployment System (PDS) and Motor Firing System (MFS).
 
@@ -75,5 +75,7 @@ Processing the ISU data, managing the data in the storage, and controlling the P
 
 **Subsystem model:**
 
-
+![Dutah System Model Jan 2023](https://user-images.githubusercontent.com/109530150/219958351-f7c2749f-0156-410c-bc6f-26a42b6d559e.jpeg)
+<div align="center">
+<h1 style="font-size:10vw">Credits: Thiruvarulselvan K</h1>
 
