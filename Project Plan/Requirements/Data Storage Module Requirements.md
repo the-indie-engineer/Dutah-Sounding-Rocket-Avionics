@@ -13,11 +13,11 @@
   
 **Revision history:**
 	
-_1. First draft completion - Srinivasan S - 31/01/2023
+_1. First draft completion - Srinivasan S - 31/01/2023_
 	
-2. Second draft - Included more requirements - Thiruvarulselvan K - 03/02/2023
+_2. Second draft - Included more requirements - Thiruvarulselvan K - 03/02/2023_
 	
-3. Addition of Model diagram – Thiruvarulselvan K – 11/02/2023_
+_3. Addition of Model diagram – Thiruvarulselvan K – 11/02/2023_
 
 
 **Abbreviations**:
