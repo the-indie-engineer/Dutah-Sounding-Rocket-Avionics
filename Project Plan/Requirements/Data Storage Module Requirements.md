@@ -1,5 +1,5 @@
 <div align="center">
-<h1 style="font-size:10vw">Data Sensing Module Requirement Analysis</h1>
+<h1 style="font-size:10vw">Data Storage Module Requirement Analysis</h1>
 
 <div align="left">
 
@@ -29,8 +29,7 @@ DSM - Data Storage Module
 RTC - Real Time Clock
 
 **Purpose of the subsystem:**
-
-	CPM processes the data acquired from the sensor and gives it as output. The output needs to be stored into the Data Storage Module so that it can be further analyzed, and reused. The history of stored data plays a vital role in analysing the performance of the subsystem.
+CPM processes the data acquired from the sensor and gives it as output. The output needs to be stored into the Data Storage Module so that it can be further analyzed, and reused. The history of stored data plays a vital role in analysing the performance of the subsystem.
 
   | Type  | Requirement | Priority |
 | ------------- | ------------- | ------------- |
