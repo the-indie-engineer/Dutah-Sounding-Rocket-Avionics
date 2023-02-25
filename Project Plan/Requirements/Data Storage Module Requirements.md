@@ -29,6 +29,7 @@ DSM - Data Storage Module
 RTC - Real Time Clock
 
 **Purpose of the subsystem:**
+	
 CPM processes the data acquired from the sensor and gives it as output. The output needs to be stored into the Data Storage Module so that it can be further analyzed, and reused. The history of stored data plays a vital role in analysing the performance of the subsystem.
 
   | Type  | Requirement | Priority |
@@ -36,7 +37,7 @@ CPM processes the data acquired from the sensor and gives it as output. The outp
 Functional|	Store the incoming data in the memory	|Core|
 Functional|	We are having a database which is of size x, the size of memory can be 2x or more in order to avoid space scarcity issues in the future.|	Desired|
 Functional|	Transfer the required data on request|	Core|
-Operational|	Receive the data transmitted from the CPM via communication bus	Core|
+Operational|	Receive the data transmitted from the CPM via communication bus	|Core|
 Operational|	The data should be retained in the case of power outage|	Essential|
 Operational|	Read and transfer the data in a particular memory sector back to the CPM on command|	Essential|
 Operational|	Should be powered by the CPM output power supply	|Desired|
