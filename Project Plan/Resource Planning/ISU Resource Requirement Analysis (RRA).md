@@ -1,6 +1,6 @@
-| Part List -  Inertial Sensing Unit<br>Dutah - Avionics |
-| ------------------------------------------------------ |
-| S.No                                                   | Category | Part ID | Part Name | Part Description | Quantity |
+<div align="center">
+<h1 style="font-size:10vw">Part List -  Inertial Sensing Unit<br>Dutah - Avionics</h1>
+| S.No | Category | Part ID | Part Name | Part Description | Quantity |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | 1                                                      | ISU | ISU_01 | Velocity/Acceleration sensing module | Senses and gives the speed change output | 1 |
 | 2                                                      | ISU | ISU_02 | Attitude Sensing module | Senses the change in the roll, pitch, and yaw axis | 1 |
