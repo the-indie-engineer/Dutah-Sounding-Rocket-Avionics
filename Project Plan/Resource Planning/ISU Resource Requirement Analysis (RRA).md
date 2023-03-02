@@ -15,3 +15,16 @@
 | 10                                                     | ISU | ISU_10 | Resistors | Vibration sensors modules | 3 |
 | 11                                                     | ISU | ISU_11 | Motor Temperature sensor | Sensing the motor temperature | 1 |
 | 12                                                     | ISU | ISU_12 | Atmospheric Temperature and Humidity Sensor | Sense the temperatue and humidity of the current atmospheric conditions | 1 |
+
+<div align="center">
+<h1 style="font-size:10vw">Lab equipment requirements - Inertial Sensing Unit<br>Dutah - Avionics</h1>
+  
+| S.No                                                                   | Category | Equipment name | Equiment Description | Quantity |
+  | ------------- | ------------- | ------------- | ------------- | ------------- | 
+| 1                                                                      | ISU | Vaccuum Chamber | To test the Altimeter by changing the chamber presuure | 1 |
+| 2                                                                      | ISU | Variable Voltage Source | To change the Voltage sensor input | 1 |
+| 3                                                                      | ISU | Variable Current Source | To change the current sensor input | 1 |
+| 4                                                                      | ISU | Air blower | To simulate wind conditions to test the wind pressure sensor | 1 |
+| 5                                                                      | ISU | Multimeter | Measuring various voltage and current changes | 1 |
+| 6                                                                      | ISU | Protractor | Measure the angle difference output from Attitude sensor | 1 |
+| 7                                                                      | ISU | Oscilloscope | Measure the voltage across the peizo vibration sensor | 1 |
