@@ -1,5 +1,6 @@
 <div align="center">
 <h1 style="font-size:10vw">Part List -  Inertial Sensing Unit<br>Dutah - Avionics</h1>
+  
 | S.No | Category | Part ID | Part Name | Part Description | Quantity |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | 1                                                      | ISU | ISU_01 | Velocity/Acceleration sensing module | Senses and gives the speed change output | 1 |
