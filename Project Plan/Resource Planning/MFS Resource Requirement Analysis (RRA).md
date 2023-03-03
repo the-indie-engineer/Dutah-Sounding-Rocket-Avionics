@@ -28,8 +28,8 @@
   <div align="center">
 <h1 style="font-size:10vw">Bill of Materials -Motor Firing System<br>Dutah - Avionics</h1>
   
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | S.No                                                | Category | Part ID | Part Name | Part Description | Quantity | Unit Price | Total Price | Buying Link | Vendor |
+    | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | 1                                                   | MFS | MFS_01 | Igniter | Ignites the motor | 1 | 169 | 169 | [Igniter](https://www.amazon.in/ART-IFACT-Resistance-Nichrome-Heating/dp/B07H2LYXHN/ref=sr_1_1?keywords=nichrome+wire&qid=1676983175&sr=8-1) | Amazon |
 | 2                                                   | MFS | MFS_02 | Connecting cables | Connects the igniter with CPM | 1 | 300 | 300 | [Red Wire](https://robu.in/product/20awg-silicone-wire/) | Robu |
 | 3                                                   | MFS | MFS_03 | Battery | Powers the MFS and Igniter | 1 | 849 | 849 | [Battery](https://robu.in/product/orange-18650-li-ion-2200mah-11-1v-3s1p-protected-battery-pack-2c-with-dc-jack-male-female/) | Robu |
