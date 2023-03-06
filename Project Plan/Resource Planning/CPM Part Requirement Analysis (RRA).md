@@ -23,7 +23,7 @@
 <h1 style="font-size:10vw">Lab equipment requirements - Central Processing Module<br>Dutah - Avionics</h1>
 	  
 	  | S.No                                                                      | Equipment name | Equiment Description | Quantity |
-| ------------- | ------------- | ------------- | ------------- | ------------- | 
+| ------------- | ------------- | ------------- | ------------- |
 | 1                                                                         | Hardware debugging tool | Flashes the firmware to the microcontroller's flash memory | 1 |
 | 2                                                                         | Laptop/PC | To develop firmware and debug | 1 |
 | 3                                                                         | Multimeter | For troubleshooting of the hardware and various testing purposes | 1 |
