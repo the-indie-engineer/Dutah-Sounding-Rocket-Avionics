@@ -12,9 +12,9 @@
   <div align="center">
 <h1 style="font-size:10vw">Bill of Materials - Central Processing Module<br>Dutah - Avionics</h1>
 	  
- | S.No                                                                   | Category | Equipment name | Equiment Description | Quantity |
-| ------------- | ------------- | ------------- | ------------- | ------------- | 
+
 | S.No                                                      | Category | Part ID | Part Name | Part Description | Quantity | Unit Price | Total Price |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | 
 | 1                                                         | CPM | CPM_01 | Microcontroller | Hardware to control the entire OAS | 1 | 600 | 600 |
 | 2                                                         | CPM | CPM_02 | Interfacing cable | Interface PC and controller for debugging | 1 | 230 | 230 |
 | 3                                                         | CPM | CPM_03 | Wiring kit | Making connections | 1 | 910 | 910 |
@@ -22,7 +22,7 @@
   <div align="center">
 <h1 style="font-size:10vw">Lab equipment requirements - Central Processing Module<br>Dutah - Avionics</h1>
 	  
-	  | S.No                                                                      | Equipment name | Equiment Description | Quantity |
+| S.No                                                                      | Equipment name | Equiment Description | Quantity |
 | ------------- | ------------- | ------------- | ------------- |
 | 1                                                                         | Hardware debugging tool | Flashes the firmware to the microcontroller's flash memory | 1 |
 | 2                                                                         | Laptop/PC | To develop firmware and debug | 1 |
