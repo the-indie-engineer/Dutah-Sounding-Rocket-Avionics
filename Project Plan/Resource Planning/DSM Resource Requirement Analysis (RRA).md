@@ -11,7 +11,7 @@
    <div align="center">
 <h1 style="font-size:10vw">Bill of Materials - Data Storage Module<br>Dutah - Avionics</h1>
   
-| S.No | Category | Part ID | Part Name | Part Description | Quantity | Unit Price | Total Price | Buying Link | Vendor |
+| S.No | Category | Part ID | Part Name | Part Description | Quantity | Unit Price | Total Price | 
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | 
      | 1    | DSM      | DSM_01  | Memory Driver Hardware | Accesses the memory and communicates with MPM | 1        | 200        | 200         |
 | 2    | DSM      | DSM_02  | Solid State Memory     | Stores and retrieves data                     | 1        | 360        | 360         |
