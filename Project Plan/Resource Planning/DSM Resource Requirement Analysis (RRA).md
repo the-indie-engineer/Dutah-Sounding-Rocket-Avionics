@@ -13,7 +13,7 @@
   
 | S.No | Category | Part ID | Part Name | Part Description | Quantity | Unit Price | Total Price | 
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | 
-     | 1    | DSM      | DSM_01  | Memory Driver Hardware | Accesses the memory and communicates with MPM | 1        | 200        | 200         |
+| 1    | DSM      | DSM_01  | Memory Driver Hardware | Accesses the memory and communicates with MPM | 1        | 200        | 200         |
 | 2    | DSM      | DSM_02  | Solid State Memory     | Stores and retrieves data                     | 1        | 360        | 360         |
 | 3    | DSM      | DSM_03  | Realtime clock module  | Provides time information                     | 1        | 200        | 200         |
 | 4    | DSM      | DSM_04  | Battery                | Powers the RTC module                         | 1        | 80         | 80          |
