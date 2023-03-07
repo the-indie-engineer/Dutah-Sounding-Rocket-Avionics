@@ -18,11 +18,11 @@
 | 3    | DSM      | DSM_03  | Realtime clock module  | Provides time information                     | 1        | 200        | 200         |
 | 4    | DSM      | DSM_04  | Battery                | Powers the RTC module                         | 1        | 80         | 80          |
      
-       <div align="center">
+<div align="center">
 <h1 style="font-size:10vw">Lab Equipments - Data Storage Module<br>Dutah - Avionics</h1>
      
-     | S.No | Equipment name         | Equiment Description   | Quantity |
+| S.No | Equipment name         | Equiment Description   | Quantity |
 | ---- | ---------------------- | ---------------------- | -------- |
 | 1    | Memory Reader with USB | Reads the memory in PC | 1        |
          
-         Last Edited by THIRUVARULSELVAN K 01.03.23 19.08
+Last Edited by THIRUVARULSELVAN K 01.03.23 19.08
