@@ -17,7 +17,7 @@
 | 2    | DSM      | DSM_02  | Solid State Memory     | Stores and retrieves data                     | 1        | 360        | 360         |
 | 3    | DSM      | DSM_03  | Realtime clock module  | Provides time information                     | 1        | 200        | 200         |
 | 4    | DSM      | DSM_04  | Battery                | Powers the RTC module                         | 1        | 80         | 80          |
-|      |          |         |                        |                                               |          |  **Total** | 840         |
+|  -    |      -    |   -      |           -             |        -                                       |       -   |  **Total** | 840         |
      
        <div align="center">
 <h1 style="font-size:10vw">Lab Equipments - Data Storage Module<br>Dutah - Avionics</h1>
