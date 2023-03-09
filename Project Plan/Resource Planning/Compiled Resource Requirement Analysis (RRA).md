@@ -95,8 +95,8 @@
       <div align="center">
 <h1 style="font-size:10vw">Lab equipment requirements - Central Processing Module<br>Dutah - Avionics</h1>
         
-        | S.No | Category | Equipment name                                                                    | Equiment Description                                             | Quantity |
-| ---- | -------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------- |
+| S.No | Category | Equipment name | Equiment Description  | Quantity |
+| ---- | -------- | ---------------| ----------------------| -------- |
 | 1    | ISU      | Vaccuum Chamber                                                                   | To test the Altimeter by changing the chamber presuure           | 1        |
 | 2    | ISU      | Variable Voltage Source                                                           | To change the Voltage sensor input                               | 1        |
 | 3    | ISU      | Variable Current Source                                                           | To change the current sensor input                               | 1        |
