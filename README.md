@@ -7,6 +7,7 @@ This repository presents the design and development of a comprehensive data acqu
 
 **Central Processing Module:
 **
+
 Processing the ISU data, managing the data in the storage, and controlling the Parachute Deployment System (PDS) and Motor Firing System (MFS).
 
 **Inertial Sensing Unit**
