@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Motor_Temp_Data_Storage_Test_F446RE/Data_Storage_Test_F446RE.ioc&apos; to &apos;Motor_Temp_Data_Storage_Test_F446RE.ioc&apos;" description="Rename resource &apos;Data_Storage_Test_F446RE.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Data_Storage_Test_F446RE.ioc" name="Motor_Temp_Data_Storage_Test_F446RE.ioc" stamp="1679392072504" updateReferences="true"/>
+</session>

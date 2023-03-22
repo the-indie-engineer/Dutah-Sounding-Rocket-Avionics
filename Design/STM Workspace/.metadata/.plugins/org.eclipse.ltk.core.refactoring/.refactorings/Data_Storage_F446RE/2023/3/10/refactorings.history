@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CPM_Current_Sensor_F446RE/temp.ioc&apos; to &apos;CPM_Current_Sensor_F446RE.ioc&apos;" description="Rename resource &apos;temp.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="temp.ioc" name="CPM_Current_Sensor_F446RE.ioc" stamp="1678180306741" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Data_storage_F446RE/temp.ioc&apos; to &apos;Data_storage_F446RE.ioc&apos;" description="Rename resource &apos;temp.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="temp.ioc" name="Data_storage_F446RE.ioc" stamp="1678195527603" updateReferences="true"/>
+</session>
