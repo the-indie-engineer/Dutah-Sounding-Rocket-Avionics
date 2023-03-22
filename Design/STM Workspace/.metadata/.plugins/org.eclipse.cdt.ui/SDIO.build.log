@@ -1,0 +1,10 @@
+17:14:12 **** Incremental Build of configuration Debug for project SDIO ****
+make -j16 all 
+arm-none-eabi-size   SDIO.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49824	    488	   3344	  53656	   d198	SDIO.elf
+Finished building: default.size.stdout
+ 
+
+17:14:13 Build Finished. 0 errors, 0 warnings. (took 1s.464ms)
+

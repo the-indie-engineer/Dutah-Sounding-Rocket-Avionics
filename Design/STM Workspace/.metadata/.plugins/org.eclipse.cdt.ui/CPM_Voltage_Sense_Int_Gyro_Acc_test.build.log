@@ -1,0 +1,10 @@
+18:56:13 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Int_Gyro_Acc_test ****
+make -j16 all 
+arm-none-eabi-size   CPM_Voltage_Sense_Int_Gyro_Acc_test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18024	     28	   1860	  19912	   4dc8	CPM_Voltage_Sense_Int_Gyro_Acc_test.elf
+Finished building: default.size.stdout
+ 
+
+18:56:13 Build Finished. 0 errors, 0 warnings. (took 165ms)
+

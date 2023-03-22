@@ -17,16 +17,24 @@ trigger signals to keep the motor running.
 
 | SNO | MATERIALS REQUIRED | QUTY |
 | -| - | - |
-| 1| 555 Timer-NE555 | 1 |
-| 2 | Push Button Switch | 1 |
-| 3 | Led  | 1 |
-| 4 | Capacitor | 1 & 1Uf|
-| 5 | Resistor| 2nos& 10 Ω |
-| 6 | Resistor| 1 |
-| 7 | Resistor | 1 |
+| 1| 555 Timer-NE555 | 1 Nos |
+| 2 | Push Button Switch |1 Nos |
+| 3 | Led  | 1 Nos|
+| 4 | Capacitor | 1Nos & 1Uf|
+| 5 | Resistor| 2Nos & 10 Ω |
+| 6 | Resistor| 1Nos & 270 Ω |
+| 7 | Resistor |1Nos &100 Ω |
 
 
 <h2>CIRCUIT DIAGRAM</H2>
+
+![CIRCUIT](https://user-images.githubusercontent.com/128483585/226621478-5246bc76-48cf-4477-9dc5-89300b782ff2.png)
+
+
+<h2>REFERENCE:</h2>
+                     YOUTUBE(Elonics - Electronics Projects on Breadboard)
+
+
 
 <h2>WORKING</h2>
 
@@ -35,3 +43,9 @@ This device will remain ON unless the Push Button is pushed to reset and similar
 This circuit is made up of 555 Timer IC which will help to keep it ON and the Push Button is used to change the states.
 
 <h2>TESTING<H2>
+ 
+  ![Untitled video - Made with Clipchamp](https://user-images.githubusercontent.com/128483585/226625178-217344d3-24af-4754-932e-6997f0ea4dcd.gif)
+  
+  
+ Latch Circuit Using On And Off By Using Push Button
+

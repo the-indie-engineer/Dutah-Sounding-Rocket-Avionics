@@ -1,0 +1,10 @@
+16:19:50 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
+make -j16 all 
+arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12220	     24	   1744	  13988	   36a4	CPM_Voltage_Sense_Test F446RE.elf
+Finished building: default.size.stdout
+ 
+
+16:19:51 Build Finished. 0 errors, 0 warnings. (took 452ms)
+

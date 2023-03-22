@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Gyro Acc Fault det F446RE/Gyro Acc F446RE.ioc&apos; to &apos;Gyro Acc Fault det F446RE.ioc&apos;" description="Rename resource &apos;Gyro Acc F446RE.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Gyro Acc F446RE.ioc" name="Gyro Acc Fault det F446RE.ioc" stamp="1677760086244" updateReferences="true"/>
+</session>
