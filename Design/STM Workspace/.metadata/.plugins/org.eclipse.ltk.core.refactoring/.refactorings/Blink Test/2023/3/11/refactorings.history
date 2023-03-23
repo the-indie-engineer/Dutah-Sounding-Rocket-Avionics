@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Blink Test/MFS User Interface Design.ioc&apos; to &apos;Blink Test.ioc&apos;" description="Rename resource &apos;MFS User Interface Design.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MFS User Interface Design.ioc" name="Blink Test.ioc" stamp="1679141660947" updateReferences="true"/>
+</session>
