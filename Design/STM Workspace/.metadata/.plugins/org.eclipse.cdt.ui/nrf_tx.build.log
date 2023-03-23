@@ -1,0 +1,10 @@
+19:44:26 **** Incremental Build of configuration Debug for project nrf_tx ****
+make -j16 all 
+arm-none-eabi-size   nrf_tx.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12128	     44	   1732	  13904	   3650	nrf_tx.elf
+Finished building: default.size.stdout
+ 
+
+19:44:26 Build Finished. 0 errors, 0 warnings. (took 191ms)
+
