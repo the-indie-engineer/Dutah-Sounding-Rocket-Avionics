@@ -1,0 +1,13 @@
+NRF24L01.c:35:6:CS_Select	8	static
+NRF24L01.c:40:6:CS_UnSelect	8	static
+NRF24L01.c:46:6:CE_Enable	8	static
+NRF24L01.c:51:6:CE_Disable	8	static
+NRF24L01.c:59:6:nrf24_WriteReg	24	static
+NRF24L01.c:75:6:nrf24_WriteRegMulti	32	static
+NRF24L01.c:92:9:nrf24_ReadReg	24	static
+NRF24L01.c:110:6:nrf24_ReadReg_Multi	24	static
+NRF24L01.c:124:6:nrfsendCmd	16	static
+NRF24L01.c:135:6:nrf24_reset	40	static
+NRF24L01.c:183:6:NRF24_Init	8	static
+NRF24L01.c:213:6:NRF24_TxMode	24	static
+NRF24L01.c:236:9:NRF24_Transmit	24	static
