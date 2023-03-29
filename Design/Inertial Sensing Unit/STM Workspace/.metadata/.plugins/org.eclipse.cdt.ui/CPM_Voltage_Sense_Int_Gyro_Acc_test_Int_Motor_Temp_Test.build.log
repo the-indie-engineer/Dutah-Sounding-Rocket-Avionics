@@ -1,4 +1,4 @@
-19:43:36 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test ****
+19:44:47 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test ****
 make -j16 all 
 arm-none-eabi-size   CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test.elf
 Finished building: default.size.stdout
  
 
-19:43:36 Build Finished. 0 errors, 0 warnings. (took 201ms)
+19:44:47 Build Finished. 0 errors, 0 warnings. (took 208ms)
 

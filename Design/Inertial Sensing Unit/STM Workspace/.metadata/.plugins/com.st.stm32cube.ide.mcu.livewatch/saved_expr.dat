@@ -15,3 +15,5 @@ CpmVoltage
 CV_Voltage_ui
 fresult
 buffer
+Temperature1
+Humidity

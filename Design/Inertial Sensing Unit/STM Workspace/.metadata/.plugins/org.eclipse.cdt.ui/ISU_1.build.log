@@ -1,0 +1,10 @@
+18:32:06 **** Build of configuration Debug for project ISU_1 ****
+make -j16 all 
+arm-none-eabi-size   ISU_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25456	    128	   1976	  27560	   6ba8	ISU_1.elf
+Finished building: default.size.stdout
+ 
+
+18:32:06 Build Finished. 0 errors, 0 warnings. (took 410ms)
+
