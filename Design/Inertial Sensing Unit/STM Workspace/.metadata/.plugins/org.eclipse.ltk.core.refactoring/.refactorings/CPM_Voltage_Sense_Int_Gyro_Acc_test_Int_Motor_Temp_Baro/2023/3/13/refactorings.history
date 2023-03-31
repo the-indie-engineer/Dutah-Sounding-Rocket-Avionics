@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro/CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test.ioc&apos; to &apos;CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.ioc&apos;" description="Rename resource &apos;CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Test.ioc" name="CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.ioc" stamp="1680270811612" updateReferences="true"/>
+</session>
