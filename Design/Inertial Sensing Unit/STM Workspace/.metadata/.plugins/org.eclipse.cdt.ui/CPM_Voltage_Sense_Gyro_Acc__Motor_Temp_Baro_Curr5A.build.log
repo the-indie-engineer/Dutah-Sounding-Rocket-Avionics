@@ -1,0 +1,16 @@
+19:55:39 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A ****
+make -j16 all 
+arm-none-eabi-gcc -o "CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.elf
+ 
+arm-none-eabi-size   CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.elf 
+arm-none-eabi-objdump -h -S  CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.elf  > "CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.list"
+   text	   data	    bss	    dec	    hex	filename
+  30608	    144	   2272	  33024	   8100	CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.elf
+Finished building: default.size.stdout
+ 
+Finished building: CPM_Voltage_Sense_Gyro_Acc__Motor_Temp_Baro_Curr5A.list
+ 
+
+19:55:39 Build Finished. 0 errors, 0 warnings. (took 502ms)
+

@@ -1,4 +1,4 @@
-19:49:02 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro ****
+17:38:07 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-gcc -o "CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,11 +7,11 @@ Finished building target: CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Bar
 arm-none-eabi-size   CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.elf 
 arm-none-eabi-objdump -h -S  CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.elf  > "CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.list"
    text	   data	    bss	    dec	    hex	filename
-  30504	    128	   2264	  32896	   8080	CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.elf
+  29576	    128	   2240	  31944	   7cc8	CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.elf
 Finished building: default.size.stdout
  
 Finished building: CPM_Voltage_Sense_Int_Gyro_Acc_test_Int_Motor_Temp_Baro.list
  
 
-19:49:03 Build Finished. 0 errors, 0 warnings. (took 613ms)
+17:38:07 Build Finished. 0 errors, 0 warnings. (took 774ms)
 

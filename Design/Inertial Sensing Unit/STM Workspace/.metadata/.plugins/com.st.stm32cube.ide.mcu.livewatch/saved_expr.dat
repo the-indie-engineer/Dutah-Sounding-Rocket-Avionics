@@ -19,3 +19,8 @@ Temperature1
 Humidity
 Temperature2
 Pressure
+dmaOut
+current5
+adc_err5
+rawVoltage5
+current20
