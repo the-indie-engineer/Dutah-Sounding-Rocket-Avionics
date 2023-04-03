@@ -25,3 +25,5 @@ adc_err5
 rawVoltage5
 current20
 gpsData
+GGA
+Temperature

@@ -1,30 +1,10 @@
-18:42:51 **** Incremental Build of configuration Debug for project CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS ****
+18:23:53 **** Incremental Build of configuration Debug for project CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:163:29: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
-  163 |   HAL_ADC_Start_DMA(&hadc1, dmaOut, 3);
-      |                             ^~~~~~
-      |                             |
-      |                             uint16_t * {aka short unsigned int *}
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:294,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:594:72: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
-  594 | HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
-      |                                                              ~~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.elf
- 
 arm-none-eabi-size   CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.elf 
-arm-none-eabi-objdump -h -S  CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.elf  > "CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.list"
    text	   data	    bss	    dec	    hex	filename
-  36800	    148	   3692	  40640	   9ec0	CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.elf
+  39624	    148	   5220	  44992	   afc0	CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.elf
 Finished building: default.size.stdout
  
-Finished building: CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.list
- 
 
-18:42:52 Build Finished. 0 errors, 1 warnings. (took 633ms)
+18:23:53 Build Finished. 0 errors, 0 warnings. (took 241ms)
 

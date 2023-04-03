@@ -144,7 +144,7 @@ void barometer_sensor()
 
     /* USER CODE BEGIN 3 */
 	  current_sensor();
-	  dht22_sensor();
+	  //dht22_sensor();
 	  barometer_sensor();
 	  HAL_Delay(1000);
   }

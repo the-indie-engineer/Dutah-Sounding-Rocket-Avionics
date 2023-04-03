@@ -24,9 +24,9 @@
 #include <stdbool.h>
 #include "mpu6050.h"
 #include "MAX6675.h"
-#include "BMP180.h"
 #include "uartRingBuffer.h"
 #include "NMEA.h"
+#include "BMP180.h"
 
 /* USER CODE END Includes */
 
@@ -58,21 +58,29 @@ TIM_HandleTypeDef htim1;
 
 extern UART_HandleTypeDef huart1;
 
-
 /* USER CODE BEGIN PV */
-
-//Gyro Variables
 float Ax, Ay, Az, Gx, Gy, Gz;
 
 uint8_t err_gyro = 0;
+/* USER CODE END PV */
 
-//GPS Variables
-char GGA[100];
-char RMC[100];
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_SPI1_Init(void);
+static void MX_TIM1_Init(void);
+static void MX_USART1_UART_Init(void);
+static void MX_I2C1_Init(void);
+static void MX_I2C2_Init(void);
+/* USER CODE BEGIN PFP */
 
-GPSSTRUCT gpsData;
+/* USER CODE END PFP */
 
-float CpmVoltage = 5.6;
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+	float CpmVoltage = 5.6;
 	bool CV_Voltage_ui=0;
 
 	float temperature;
@@ -99,25 +107,11 @@ float CpmVoltage = 5.6;
 	float sensitivity20 = 0.1;
 	float adc_err20=1.052;
 
-/* USER CODE END PV */
+	//GPS Data
+	char GGA[100];
+	char RMC[100];
 
-/* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
-static void MX_ADC1_Init(void);
-static void MX_I2C1_Init(void);
-static void MX_SPI1_Init(void);
-static void MX_TIM1_Init(void);
-static void MX_I2C2_Init(void);
-static void MX_USART1_UART_Init(void);
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
+	GPSSTRUCT gpsData;
 
 /* USER CODE END 0 */
 
@@ -151,26 +145,20 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
-  MX_I2C1_Init();
   MX_SPI1_Init();
   MX_TIM1_Init();
-  MX_I2C2_Init();
   MX_USART1_UART_Init();
+  MX_I2C1_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Init(&hadc1);
   MPU6050_Init();
-  BMP180_Start();
   HAL_ADC_Start_DMA(&hadc1, dmaOut, 3);
+  BMP180_Start();
 
   Ringbuf_init();
   HAL_Delay(500);
 
-  void barometer_sensor()
-  {
-  	  Temperature2 = BMP180_GetTemp();
-  	  Pressure = BMP180_GetPress(0);
-  	  Altitude = BMP180_GetAlt(0);
-  }
 
   void current_sensor5()
   {
@@ -185,27 +173,34 @@ int main(void)
   	  rawVoltage20 = ((float) readValue20 * 3.3) / 4095 *adc_err20;
   	  current20 =(1 - rawVoltage20)/sensitivity20;
   }
+
+  void barometer_sensor()
+  {
+  	  Temperature2 = BMP180_GetTemp();
+  	  Pressure = BMP180_GetPress(0);
+  	  Altitude = BMP180_GetAlt(0);
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(5);
-	  	  if(Wait_for("GGA")==1)
-	  	  {
-	  		  Copy_upto("*", GGA);
-	  		  decodeGGA(GGA, &gpsData.ggastruct);
-	  	  }
-	  	  if (Wait_for("RMC")==1)
-	  	  {
-	  		  Copy_upto("*",RMC);
-	  		  decodeRMC(RMC, &gpsData.rmcstruct);
-	  	  }
-
+   HAL_Delay(5);
+	  if(Wait_for("GGA")==1)
+	  {
+		  Copy_upto("*", GGA);
+		  decodeGGA(GGA, &gpsData.ggastruct);
+	  }
+	  if (Wait_for("RMC")==1)
+	  {
+		  Copy_upto("*",RMC);
+		  decodeRMC(RMC, &gpsData.rmcstruct);
+	  }
+	  
 	  temperature=Max6675_Read_Temp();
-
 	  barometer_sensor();
+
 	  current_sensor5();
 	  current_sensor20();
 
@@ -215,9 +210,8 @@ int main(void)
 
 	  HAL_GPIO_WritePin(GPIOA, CV_En_Pin, CV_Voltage_ui);
 	  CpmVoltage = dmaOut[0]*(5.0/4096.0);
+
 	  HAL_Delay(100);
-
-
 
     /* USER CODE END WHILE */
 
@@ -400,7 +394,7 @@ static void MX_I2C2_Init(void)
 
   /* USER CODE END I2C2_Init 1 */
   hi2c2.Instance = I2C2;
-  hi2c2.Init.ClockSpeed = 400000;
+  hi2c2.Init.ClockSpeed = 100000;
   hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
   hi2c2.Init.OwnAddress1 = 0;
   hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
@@ -518,7 +512,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
