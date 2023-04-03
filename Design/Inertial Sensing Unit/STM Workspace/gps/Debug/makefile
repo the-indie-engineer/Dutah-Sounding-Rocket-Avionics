@@ -60,8 +60,8 @@ all: main-build
 main-build: gps.elf secondary-outputs
 
 # Tool invocations
-gps.elf gps.map: $(OBJS) $(USER_OBJS) C:\Users\student\STM32CubeIDE\workspace_1.8.3\gps\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "gps.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\student\STM32CubeIDE\workspace_1.8.3\gps\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+gps.elf gps.map: $(OBJS) $(USER_OBJS) C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial\ Sensing\ Unit\STM\ Workspace\gps\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "gps.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\gps\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gps.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

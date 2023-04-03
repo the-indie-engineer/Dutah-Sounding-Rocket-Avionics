@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS/CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A.ioc&apos; to &apos;CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.ioc&apos;" description="Rename resource &apos;CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A.ioc" name="CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS.ioc" stamp="1680438990268" updateReferences="true"/>
+</session>
