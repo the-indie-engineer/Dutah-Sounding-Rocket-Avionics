@@ -57,8 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define CV_Enable_Pin GPIO_PIN_6
-#define CV_Enable_GPIO_Port GPIOA
+#define CV20_En_Pin GPIO_PIN_5
+#define CV20_En_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
