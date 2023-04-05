@@ -1,0 +1,10 @@
+17:57:31 **** Incremental Build of configuration Debug for project Wind Pressure HX710B F44RE ****
+make -j16 all 
+arm-none-eabi-size   Wind\ Pressure\ HX710B\ F44RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7072	     20	   1572	   8664	   21d8	Wind Pressure HX710B F44RE.elf
+Finished building: default.size.stdout
+ 
+
+17:57:31 Build Finished. 0 errors, 0 warnings. (took 184ms)
+

@@ -1,79 +1,31 @@
-21:52:40 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
+19:53:20 **** Incremental Build of configuration Debug for project USB CDC F44RE ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
-arm-none-eabi-gcc -o "CPM_Voltage_Sense_Test F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\CPM_Voltage_Sense_Test F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CPM_Voltage_Sense_Test F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: CPM_Voltage_Sense_Test F446RE.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:100:18: warning: pointer targets in passing argument 1 of 'CDC_Transmit_FS' differ in signedness [-Wpointer-sign]
+  100 |  CDC_Transmit_FS(msg,strlen(msg)); //Transmit the packet
+      |                  ^~~
+      |                  |
+      |                  char *
+In file included from ../Core/Src/main.c:25:
+../USB_DEVICE/App/usbd_cdc_if.h:108:34: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  108 | uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+      |                         ~~~~~~~~~^~~
+arm-none-eabi-gcc -o "USB CDC F44RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\USB CDC F44RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USB CDC F44RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USB CDC F44RE.elf
  
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-arm-none-eabi-objdump -h -S  CPM_Voltage_Sense_Test\ F446RE.elf  > "CPM_Voltage_Sense_Test F446RE.list"
+arm-none-eabi-size   USB\ CDC\ F44RE.elf 
+arm-none-eabi-objdump -h -S  USB\ CDC\ F44RE.elf  > "USB CDC F44RE.list"
    text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
+  31300	    276	   8748	  40324	   9d84	USB CDC F44RE.elf
 Finished building: default.size.stdout
  
-Finished building: CPM_Voltage_Sense_Test F446RE.list
+Finished building: USB CDC F44RE.list
  
-21:52:44 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
+19:53:26 **** Incremental Build of configuration Debug for project USB CDC F44RE ****
 make -j16 all 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
+arm-none-eabi-size   USB\ CDC\ F44RE.elf 
    text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
-Finished building: default.size.stdout
- 
-21:56:34 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "CPM_Voltage_Sense_Test F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\CPM_Voltage_Sense_Test F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CPM_Voltage_Sense_Test F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: CPM_Voltage_Sense_Test F446RE.elf
- 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-arm-none-eabi-objdump -h -S  CPM_Voltage_Sense_Test\ F446RE.elf  > "CPM_Voltage_Sense_Test F446RE.list"
-   text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
-Finished building: default.size.stdout
- 
-Finished building: CPM_Voltage_Sense_Test F446RE.list
- 
-22:13:01 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
-make -j16 all 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-   text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
-Finished building: default.size.stdout
- 
-22:14:01 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
-make -j16 all 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-   text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
-Finished building: default.size.stdout
- 
-22:21:57 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
-make -j16 all 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-   text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
-Finished building: default.size.stdout
- 
-22:24:07 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "CPM_Voltage_Sense_Test F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\CPM_Voltage_Sense_Test F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CPM_Voltage_Sense_Test F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: CPM_Voltage_Sense_Test F446RE.elf
- 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-arm-none-eabi-objdump -h -S  CPM_Voltage_Sense_Test\ F446RE.elf  > "CPM_Voltage_Sense_Test F446RE.list"
-   text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
-Finished building: default.size.stdout
- 
-Finished building: CPM_Voltage_Sense_Test F446RE.list
- 
-22:31:52 **** Incremental Build of configuration Debug for project CPM_Voltage_Sense_Test F446RE ****
-make -j16 all 
-arm-none-eabi-size   CPM_Voltage_Sense_Test\ F446RE.elf 
-   text	   data	    bss	    dec	    hex	filename
-  10536	     20	   1652	  12208	   2fb0	CPM_Voltage_Sense_Test F446RE.elf
+  31300	    276	   8748	  40324	   9d84	USB CDC F44RE.elf
 Finished building: default.size.stdout
  

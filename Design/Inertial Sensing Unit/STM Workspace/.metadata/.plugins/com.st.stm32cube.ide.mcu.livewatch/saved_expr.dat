@@ -29,3 +29,5 @@ GGA
 Temperature
 Cpm20Voltage
 CV20_Voltage_ui
+pressure
+NCPressure

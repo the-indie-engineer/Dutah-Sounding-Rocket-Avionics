@@ -1,0 +1,10 @@
+19:53:26 **** Incremental Build of configuration Debug for project USB CDC F44RE ****
+make -j16 all 
+arm-none-eabi-size   USB\ CDC\ F44RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31300	    276	   8748	  40324	   9d84	USB CDC F44RE.elf
+Finished building: default.size.stdout
+ 
+
+19:53:26 Build Finished. 0 errors, 0 warnings. (took 220ms)
+
