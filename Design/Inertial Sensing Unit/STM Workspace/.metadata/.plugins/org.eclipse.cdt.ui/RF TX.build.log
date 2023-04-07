@@ -1,0 +1,17 @@
+21:51:26 **** Incremental Build of configuration Debug for project RF TX ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RF TX.elf
+ 
+arm-none-eabi-size   RF\ TX.elf 
+arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
+   text	   data	    bss	    dec	    hex	filename
+  11976	     44	   1660	  13680	   3570	RF TX.elf
+Finished building: default.size.stdout
+ 
+Finished building: RF TX.list
+ 
+
+21:51:27 Build Finished. 0 errors, 0 warnings. (took 543ms)
+

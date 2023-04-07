@@ -7,3 +7,6 @@
 1680524096490	Delete resource 'CPM_Voltage_Gyro_Acc_Motor_Temp_Baro_Curr5A_Curr20A_GPS/Core/Src/BMP180.c'
 1680697718092	Rename resource 'Wind Pressure HX710B F44RE'
 1680798581922	Delete resource 'USB CDC F44RE'
+1680868331830	Delete resource 'nrf_module_tx/Core/Src/RF24.cpp'
+1680882177533	Delete resource 'RF Link TX'
+1680883269595	Delete resource 'RF Link TX 2'

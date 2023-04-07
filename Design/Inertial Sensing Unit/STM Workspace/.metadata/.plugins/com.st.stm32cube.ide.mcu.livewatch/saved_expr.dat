@@ -31,3 +31,8 @@ Cpm20Voltage
 CV20_Voltage_ui
 pressure
 NCPressure
+uresult
+TxStatus
+TxError
+temp
+fifostatus
