@@ -28,6 +28,8 @@
 #include "NMEA.h"
 #include "BMP180.h"
 #include "HX710B.h"
+#include "DataPacket.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,6 +102,9 @@ GPSSTRUCT gpsData;
 
 //Nose Cone Pressure
 uint16_t NCPressure=0;
+
+char TxBuff[150];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -173,21 +178,21 @@ int main(void)
   {
   	  readValue5 = dmaOut[1];
   	  rawVoltage5 = ((float) readValue5 * 3.3) / 4095 *adc_err5;
-  	  current5 =(1 - rawVoltage5)/sensitivity5;
+  	  trans1.tlm1.CPM_Current =(1 - rawVoltage5)/sensitivity5;
   }
 
   void current_sensor20()
   {
   	  readValue20 = dmaOut[2];
   	  rawVoltage20 = ((float) readValue20 * 3.3) / 4095 *adc_err20;
-  	  current20 =(1 - rawVoltage20)/sensitivity20;
+  	  trans1.tlm1.H_Current =(1 - rawVoltage20)/sensitivity20;
   }
 
   void barometer_sensor()
   {
   	  Temperature2 = BMP180_GetTemp();
   	  Pressure = BMP180_GetPress(0);
-  	  Altitude = BMP180_GetAlt(0);
+  	  trans1.tlm1.Altitude = BMP180_GetAlt(0);
   }
   /* USER CODE END 2 */
 
@@ -207,9 +212,9 @@ int main(void)
 		  decodeRMC(RMC, &gpsData.rmcstruct);
 	  }
 	  
-	  temperature=Max6675_Read_Temp();
+	  trans1.tlm1.M_Temp=Max6675_Read_Temp();
 	  barometer_sensor();
-	  NCPressure=readHX();
+	  trans1.tlm1.NC_Press =readHX();
 
 	  current_sensor5();
 	  current_sensor20();
@@ -217,13 +222,36 @@ int main(void)
 	  MPU6050_Read_Accel (&Ax, &Ay, &Az);
 	  MPU6050_Read_Gyro(&Gx, &Gy, &Gz);
 	  //HAL_Delay(250);
+	  trans1.tlm1.Ax=Ax;
+	  trans1.tlm1.Ay=Ay;
+	  trans1.tlm1.Az=Az;
+	  trans1.tlm1.Gx=Gx;
+	  trans1.tlm1.Gy=Gy;
+	  trans1.tlm1.Gz=Gz;
+
 
 	  HAL_GPIO_WritePin(GPIOA, CV_En_Pin, En_Voltage_ui);
-	  CpmVoltage = dmaOut[0]*(5.0/4096.0);
+	  trans1.tlm1.CPM_Voltage = dmaOut[0]*(5.0/4096.0);
 	  HAL_GPIO_WritePin(HV_En_GPIO_Port, HV_En_Pin, En_Voltage_ui);
-	  HVoltage=dmaOut[3]*(9.36/4096);
+	  trans1.tlm1.H_Voltage=dmaOut[3]*(9.36/4096);
 
 	  HAL_Delay(100);
+
+	  memset(TxBuff,"\0",150);
+	  for(int i=0; i<17; i++)
+	  {
+		  char tempbuff[6]={0};
+		  gcvt(trans1.dataframe[i],4,tempbuff);
+		  //strcat(TxBuff,tempbuff);
+		  strcat(tempbuff,",");
+		  HAL_UART_Transmit(&huart4, tempbuff, strlen(tempbuff), 100);
+	  }
+//	  strcat(TxBuff,"\n");
+	  HAL_UART_Transmit(&huart4, "\n", 1, 100);
+
+
+
+	  	  //HAL_Delay(1000);
 
     /* USER CODE END WHILE */
 

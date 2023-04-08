@@ -6,6 +6,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/BMP180.c \
+../Core/Src/DataPacket.c \
 ../Core/Src/HX710B.c \
 ../Core/Src/MAX6675.c \
 ../Core/Src/NMEA.c \
@@ -20,6 +21,7 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Src/BMP180.o \
+./Core/Src/DataPacket.o \
 ./Core/Src/HX710B.o \
 ./Core/Src/MAX6675.o \
 ./Core/Src/NMEA.o \
@@ -34,6 +36,7 @@ OBJS += \
 
 C_DEPS += \
 ./Core/Src/BMP180.d \
+./Core/Src/DataPacket.d \
 ./Core/Src/HX710B.d \
 ./Core/Src/MAX6675.d \
 ./Core/Src/NMEA.d \
@@ -54,7 +57,7 @@ Core/Src/%.o Core/Src/%.su: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/BMP180.d ./Core/Src/BMP180.o ./Core/Src/BMP180.su ./Core/Src/HX710B.d ./Core/Src/HX710B.o ./Core/Src/HX710B.su ./Core/Src/MAX6675.d ./Core/Src/MAX6675.o ./Core/Src/MAX6675.su ./Core/Src/NMEA.d ./Core/Src/NMEA.o ./Core/Src/NMEA.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/mpu6050.d ./Core/Src/mpu6050.o ./Core/Src/mpu6050.su ./Core/Src/stm32f4xx_hal_msp.d ./Core/Src/stm32f4xx_hal_msp.o ./Core/Src/stm32f4xx_hal_msp.su ./Core/Src/stm32f4xx_it.d ./Core/Src/stm32f4xx_it.o ./Core/Src/stm32f4xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f4xx.d ./Core/Src/system_stm32f4xx.o ./Core/Src/system_stm32f4xx.su ./Core/Src/uartRingBuffer.d ./Core/Src/uartRingBuffer.o ./Core/Src/uartRingBuffer.su
+	-$(RM) ./Core/Src/BMP180.d ./Core/Src/BMP180.o ./Core/Src/BMP180.su ./Core/Src/DataPacket.d ./Core/Src/DataPacket.o ./Core/Src/DataPacket.su ./Core/Src/HX710B.d ./Core/Src/HX710B.o ./Core/Src/HX710B.su ./Core/Src/MAX6675.d ./Core/Src/MAX6675.o ./Core/Src/MAX6675.su ./Core/Src/NMEA.d ./Core/Src/NMEA.o ./Core/Src/NMEA.su ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/mpu6050.d ./Core/Src/mpu6050.o ./Core/Src/mpu6050.su ./Core/Src/stm32f4xx_hal_msp.d ./Core/Src/stm32f4xx_hal_msp.o ./Core/Src/stm32f4xx_hal_msp.su ./Core/Src/stm32f4xx_it.d ./Core/Src/stm32f4xx_it.o ./Core/Src/stm32f4xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f4xx.d ./Core/Src/system_stm32f4xx.o ./Core/Src/system_stm32f4xx.su ./Core/Src/uartRingBuffer.d ./Core/Src/uartRingBuffer.o ./Core/Src/uartRingBuffer.su
 
 .PHONY: clean-Core-2f-Src
 

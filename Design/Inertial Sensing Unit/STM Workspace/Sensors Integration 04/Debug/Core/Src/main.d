@@ -35,7 +35,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/mpu6050.h ../Core/Inc/MAX6675.h ../Core/Inc/main.h \
  ../Core/Inc/uartRingBuffer.h ../Core/Inc/NMEA.h ../Core/Inc/BMP180.h \
- ../Core/Inc/HX710B.h
+ ../Core/Inc/HX710B.h ../Core/Inc/DataPacket.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -78,3 +78,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/NMEA.h:
 ../Core/Inc/BMP180.h:
 ../Core/Inc/HX710B.h:
+../Core/Inc/DataPacket.h:
