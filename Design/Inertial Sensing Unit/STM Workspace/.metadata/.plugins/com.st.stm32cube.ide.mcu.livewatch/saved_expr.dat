@@ -27,11 +27,11 @@ current20
 gpsData
 GGA
 Temperature
-Cpm20Voltage
-CV20_Voltage_ui
+CpmVoltage
+En_Voltage_ui
 pressure
 NCPressure
-uresult
+HVoltage
 TxStatus
 TxError
 temp
