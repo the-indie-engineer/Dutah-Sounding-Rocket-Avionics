@@ -1,92 +1,112 @@
-21:35:30 **** Incremental Build of configuration Debug for project RF TX ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/NRF24L01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/NRF24L01.d" -MT"Core/Src/NRF24L01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/NRF24L01.o"
-arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RF TX.elf
- 
-arm-none-eabi-size   RF\ TX.elf 
-arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
-   text	   data	    bss	    dec	    hex	filename
-  11956	     44	   1660	  13660	   355c	RF TX.elf
-Finished building: default.size.stdout
- 
-Finished building: RF TX.list
- 
-21:41:12 **** Incremental Build of configuration Debug for project RF TX ****
-make -j16 all 
-arm-none-eabi-size   RF\ TX.elf 
-   text	   data	    bss	    dec	    hex	filename
-  11956	     44	   1660	  13660	   355c	RF TX.elf
-Finished building: default.size.stdout
- 
-21:44:32 **** Incremental Build of configuration Debug for project RF TX ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/NRF24L01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/NRF24L01.d" -MT"Core/Src/NRF24L01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/NRF24L01.o"
-arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RF TX.elf
- 
-arm-none-eabi-size   RF\ TX.elf 
-arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
-   text	   data	    bss	    dec	    hex	filename
-  11968	     44	   1660	  13672	   3568	RF TX.elf
-Finished building: default.size.stdout
- 
-Finished building: RF TX.list
- 
-21:47:03 **** Incremental Build of configuration Debug for project RF TX ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/NRF24L01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/NRF24L01.d" -MT"Core/Src/NRF24L01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/NRF24L01.o"
-arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RF TX.elf
- 
-arm-none-eabi-size   RF\ TX.elf 
-arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
-   text	   data	    bss	    dec	    hex	filename
-  11956	     44	   1660	  13660	   355c	RF TX.elf
-Finished building: default.size.stdout
- 
-Finished building: RF TX.list
- 
-21:49:16 **** Incremental Build of configuration Debug for project RF TX ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/NRF24L01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/NRF24L01.d" -MT"Core/Src/NRF24L01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/NRF24L01.o"
-arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RF TX.elf
- 
-arm-none-eabi-size   RF\ TX.elf 
-arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
-   text	   data	    bss	    dec	    hex	filename
-  11968	     44	   1660	  13672	   3568	RF TX.elf
-Finished building: default.size.stdout
- 
-Finished building: RF TX.list
- 
-21:50:53 **** Incremental Build of configuration Debug for project RF TX ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/NRF24L01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/NRF24L01.d" -MT"Core/Src/NRF24L01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/NRF24L01.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RF TX.elf
- 
-arm-none-eabi-size   RF\ TX.elf 
-arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
-   text	   data	    bss	    dec	    hex	filename
-  11976	     44	   1660	  13680	   3570	RF TX.elf
-Finished building: default.size.stdout
- 
-Finished building: RF TX.list
- 
-21:51:26 **** Incremental Build of configuration Debug for project RF TX ****
+14:07:37 **** Incremental Build of configuration Debug for project Sensors Integration 03 ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "RF TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\RF TX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RF TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RF TX.elf
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:29: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |   HAL_ADC_Start_DMA(&hadc1, dmaOut, 3);
+      |                             ^~~~~~
+      |                             |
+      |                             uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:294,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:594:72: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  594 | HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
+      |                                                              ~~~~~~~~~~^~~~~
+../Core/Src/main.c:220:50: error: 'CV_Voltage_ui' undeclared (first use in this function); did you mean 'En_Voltage_ui'?
+  220 |    HAL_GPIO_WritePin(HV_En_GPIO_Port, HV_En_Pin, CV_Voltage_ui);
+      |                                                  ^~~~~~~~~~~~~
+      |                                                  En_Voltage_ui
+../Core/Src/main.c:220:50: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:07:41 **** Incremental Build of configuration Debug for project Sensors Integration 03 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:29: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |   HAL_ADC_Start_DMA(&hadc1, dmaOut, 3);
+      |                             ^~~~~~
+      |                             |
+      |                             uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:294,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:594:72: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  594 | HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
+      |                                                              ~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Sensors Integration 03.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\Sensors Integration 03\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sensors Integration 03.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+c:\st\stm32cubeide_1.8.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.100.202210260954\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/uartRingBuffer.o:C:/THIRUVARULSELVAN/Dutah-Sounding-Rocket-Avionics/Design/Inertial Sensing Unit/STM Workspace/Sensors Integration 03/Debug/../Core/Src/uartRingBuffer.c:6: multiple definition of `huart1'; ./Core/Src/main.o:C:/THIRUVARULSELVAN/Dutah-Sounding-Rocket-Avionics/Design/Inertial Sensing Unit/STM Workspace/Sensors Integration 03/Debug/../Core/Src/main.c:59: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:64: Sensors Integration 03.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:07:58 **** Incremental Build of configuration Debug for project Sensors Integration 03 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:29: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |   HAL_ADC_Start_DMA(&hadc1, dmaOut, 3);
+      |                             ^~~~~~
+      |                             |
+      |                             uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:294,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:594:72: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  594 | HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
+      |                                                              ~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Sensors Integration 03.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\Sensors Integration 03\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sensors Integration 03.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sensors Integration 03.elf
  
-arm-none-eabi-size   RF\ TX.elf 
-arm-none-eabi-objdump -h -S  RF\ TX.elf  > "RF TX.list"
+arm-none-eabi-size   Sensors\ Integration\ 03.elf 
+arm-none-eabi-objdump -h -S  Sensors\ Integration\ 03.elf  > "Sensors Integration 03.list"
    text	   data	    bss	    dec	    hex	filename
-  11976	     44	   1660	  13680	   3570	RF TX.elf
+  40248	    144	   5232	  45624	   b238	Sensors Integration 03.elf
 Finished building: default.size.stdout
  
-Finished building: RF TX.list
+Finished building: Sensors Integration 03.list
+ 
+14:08:01 **** Incremental Build of configuration Debug for project Sensors Integration 03 ****
+make -j16 all 
+arm-none-eabi-size   Sensors\ Integration\ 03.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40248	    144	   5232	  45624	   b238	Sensors Integration 03.elf
+Finished building: default.size.stdout
+ 
+14:11:40 **** Incremental Build of configuration Debug for project Sensors Integration 03 ****
+make -j16 all 
+arm-none-eabi-size   Sensors\ Integration\ 03.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40248	    144	   5232	  45624	   b238	Sensors Integration 03.elf
+Finished building: default.size.stdout
+ 
+14:13:06 **** Incremental Build of configuration Debug for project Sensors Integration 03 ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:162:29: warning: passing argument 2 of 'HAL_ADC_Start_DMA' from incompatible pointer type [-Wincompatible-pointer-types]
+  162 |   HAL_ADC_Start_DMA(&hadc1, dmaOut, 4);
+      |                             ^~~~~~
+      |                             |
+      |                             uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:294,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h:594:72: note: expected 'uint32_t *' {aka 'long unsigned int *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  594 | HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
+      |                                                              ~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Sensors Integration 03.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\Sensors Integration 03\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sensors Integration 03.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Sensors Integration 03.elf
+ 
+arm-none-eabi-size   Sensors\ Integration\ 03.elf 
+arm-none-eabi-objdump -h -S  Sensors\ Integration\ 03.elf  > "Sensors Integration 03.list"
+   text	   data	    bss	    dec	    hex	filename
+  40248	    144	   5232	  45624	   b238	Sensors Integration 03.elf
+Finished building: default.size.stdout
+ 
+Finished building: Sensors Integration 03.list
  
