@@ -1,0 +1,10 @@
+14:35:57 **** Incremental Build of configuration Debug for project Sensors Integration 04 ****
+make -j16 all 
+arm-none-eabi-size   Sensors\ Integration\ 04.elf 
+   text	   data	    bss	    dec	    hex	filename
+  40448	    144	   5296	  45888	   b340	Sensors Integration 04.elf
+Finished building: default.size.stdout
+ 
+
+14:35:57 Build Finished. 0 errors, 0 warnings. (took 252ms)
+
