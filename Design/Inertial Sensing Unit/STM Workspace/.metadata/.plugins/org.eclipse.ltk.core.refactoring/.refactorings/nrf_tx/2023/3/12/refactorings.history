@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;nrf_tx/Core/Src/NRF24L01 (1).c&apos; to &apos;NRF24L01.c&apos;" description="Rename resource &apos;NRF24L01 (1).c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/NRF24L01 (1).c" name="NRF24L01.c" stamp="1679312040829" updateReferences="true"/>
-</session>

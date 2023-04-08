@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Wind Pressure HX710B F44RE/temp.ioc&apos; to &apos;Wind Pressure HX710B F44RE.ioc&apos;" description="Rename resource &apos;temp.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="temp.ioc" name="Wind Pressure HX710B F44RE.ioc" stamp="1680688725411" updateReferences="true"/>
-</session>

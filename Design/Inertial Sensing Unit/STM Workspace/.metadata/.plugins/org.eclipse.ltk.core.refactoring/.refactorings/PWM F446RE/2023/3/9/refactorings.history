@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;PWM F446RE/temp.ioc&apos; to &apos;PWM F446RE.ioc&apos;" description="Rename resource &apos;temp.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="temp.ioc" name="PWM F446RE.ioc" stamp="1677741954667" updateReferences="true"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;CPM_Voltage_Sense_Test F446RE/ADC F446RE.ioc&apos; to &apos;CPM_Voltage_Sense_Test F446RE.ioc&apos;" description="Rename resource &apos;ADC F446RE.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ADC F446RE.ioc" name="CPM_Voltage_Sense_Test F446RE.ioc" stamp="1677921533680" updateReferences="true"/>
-</session>

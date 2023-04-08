@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;CPM_Voltage_Sense_Int_Gyro_Acc_USB_CDC/CPM_Voltage_Sense_Int_Gyro_Acc_test.ioc&apos; to &apos;CPM_Voltage_Sense_Int_Gyro_Acc_USB_CDC.ioc&apos;" description="Rename resource &apos;CPM_Voltage_Sense_Int_Gyro_Acc_test.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CPM_Voltage_Sense_Int_Gyro_Acc_test.ioc" name="CPM_Voltage_Sense_Int_Gyro_Acc_USB_CDC.ioc" stamp="1678452923307" updateReferences="true"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Motor_temperature_fault_det/Motor_temperature_test.ioc&apos; to &apos;Motor_temperature_fault_det.ioc&apos;" description="Rename resource &apos;Motor_temperature_test.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Motor_temperature_test.ioc" name="Motor_temperature_fault_det.ioc" stamp="1676895466064" updateReferences="true"/>
-</session>

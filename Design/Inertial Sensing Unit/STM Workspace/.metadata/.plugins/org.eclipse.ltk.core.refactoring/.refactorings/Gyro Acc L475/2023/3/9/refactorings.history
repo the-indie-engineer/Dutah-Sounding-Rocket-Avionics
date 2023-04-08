@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Gyro Acc L475/L475 test.ioc&apos; to &apos;Gyro Acc L475.ioc&apos;" description="Rename resource &apos;L475 test.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="L475 test.ioc" name="Gyro Acc L475.ioc" stamp="1677674355928" updateReferences="true"/>
-</session>
