@@ -57,7 +57,7 @@ SPI_HandleTypeDef hspi1;
 TIM_HandleTypeDef htim1;
 
 UART_HandleTypeDef huart4;
-UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 float Ax, Ay, Az, Gx, Gy, Gz;

@@ -493,3 +493,25 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-04-08 14:19:50.554
 !MESSAGE Indexed 'Sensors Integration 04' (34 sources, 131 headers) in 1.6 sec: 14,250 declarations; 87,757 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.14%)
+!SESSION 2023-04-08 14:34:54.639 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-04-08 14:35:04.695
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-04-08 14:35:04.747
+!MESSAGE Log4j initialized with config file C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-04-08 14:35:07.291
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.equinox.p2.updatechecker 4 0 2023-04-08 14:36:18.871
+!MESSAGE Exception in update check thread
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.ui.sdk.scheduler.AutomaticUpdateScheduler$2.updatesAvailable(AutomaticUpdateScheduler.java:154)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:83)
