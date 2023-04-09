@@ -1,0 +1,4 @@
+../Core/Src/RTC.c:15:9:decToBcd	16	static
+../Core/Src/RTC.c:20:5:bcdToDec	16	static
+../Core/Src/RTC.c:25:6:Set_Time	48	static
+../Core/Src/RTC.c:37:6:Get_Time	32	static
