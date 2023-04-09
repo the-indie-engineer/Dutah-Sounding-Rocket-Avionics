@@ -1,0 +1,17 @@
+../Core/Src/RF433.c:60:6:poeModoTx	4	static
+../Core/Src/RF433.c:73:6:poeModoRx	8	static
+../Core/Src/RF433.c:82:6:poeModoParado	8	static
+../Core/Src/RF433.c:91:6:disponivel	8	static
+../Core/Src/RF433.c:104:6:recb	24	static
+../Core/Src/RF433.c:119:6:envia	32	static
+../Core/Src/RF433.c:160:9:simbolo_para_nibble	24	static
+../Core/Src/RF433.c:174:6:validaRxBuf	16	static
+../Core/Src/RF433.c:190:6:TimerRecb	24	static
+../Core/Src/RF433.c:280:6:TimerEnvia	16	static
+../Core/Src/RF433.c:306:6:TimerRotinaInterrupcao	8	static
+../Core/Src/RF433.c:320:6:rf_init	16	static
+../Core/Src/RF433.c:328:6:esperaEnvio	4	static
+../Core/Src/RF433.c:338:10:rxRuim	4	static
+../Core/Src/RF433.c:343:10:rxBom	4	static
+../Core/Src/RF433.c:348:10:txBom	4	static
+../Core/Src/RF433.c:359:10:atualiza_crc_xmodem	24	static
