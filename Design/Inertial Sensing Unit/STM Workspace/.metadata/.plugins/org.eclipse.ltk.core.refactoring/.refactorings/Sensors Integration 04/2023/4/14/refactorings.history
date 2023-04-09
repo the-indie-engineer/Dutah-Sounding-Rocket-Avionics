@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Sensors Integration 04/Core/Inc/DataPkt.h&apos; to &apos;DataPacket.h&apos;" description="Rename resource &apos;DataPkt.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/DataPkt.h" name="DataPacket.h" stamp="1680957094656" updateReferences="true"/>
-</session>
