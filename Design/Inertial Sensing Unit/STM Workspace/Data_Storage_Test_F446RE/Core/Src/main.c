@@ -121,14 +121,14 @@ int main(void)
     	else printf("SD CARD mounted successfully...\n\n");
 
     	/* Create second file with read write access and open it */
-    	  	fresult = f_open(&fil, "file3.txt", FA_CREATE_ALWAYS | FA_WRITE);
+    	  	fresult = f_open(&fil, "file5.txt", FA_CREATE_ALWAYS | FA_WRITE);
 
     	  	/* Writing text */
     	  	strcpy (buffer, "This is TestFile.txt, written using ...f_write... and it says Hello from Dutah\n");
 
     	  	fresult = f_write(&fil, buffer, bufsize(buffer), &bw);
 
-    	  	printf ("File2.txt created and data is written\n");
+    	  	printf ("File5.txt created and data is written\n");
 
     	  	/* Close file */
     	  	f_close(&fil);
