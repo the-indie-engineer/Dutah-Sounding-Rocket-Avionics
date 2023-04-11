@@ -60,8 +60,8 @@ all: main-build
 main-build: XBEE_UART_RX.elf secondary-outputs
 
 # Tool invocations
-XBEE_UART_RX.elf XBEE_UART_RX.map: $(OBJS) $(USER_OBJS) C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Inertial\ Sensing\ Unit\STM\ Workspace\XBEE_UART_RX\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "XBEE_UART_RX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\XBEE_UART_RX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="XBEE_UART_RX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+XBEE_UART_RX.elf XBEE_UART_RX.map: $(OBJS) $(USER_OBJS) C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor\ Firing\ System\MFS\ Firmware\ Workspace\XBEE_UART_RX\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "XBEE_UART_RX.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\XBEE_UART_RX\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="XBEE_UART_RX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
