@@ -1,0 +1,2 @@
+../Core/Src/HX710B.c:14:9:shiftIn	32	static
+../Core/Src/HX710B.c:29:15:readHX	40	static

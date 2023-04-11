@@ -44,7 +44,7 @@ DMA_HandleTypeDef hdma_uart4_rx;
 DMA_HandleTypeDef hdma_uart4_tx;
 
 /* USER CODE BEGIN PV */
-char tempbuf[20]="Hello Duta'h\r\n";
+char tempbuf[]="Hello Duta'h\r\n";
 
 /* USER CODE END PV */
 
@@ -93,15 +93,15 @@ int main(void)
   MX_DMA_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_DMAResume(&huart4);
+  HAL_UART_Transmit_DMA(&huart4, tempbuf, strlen(tempbuf));
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_UART_Transmit(&huart4, tempbuf, sizeof(tempbuf), 100);
-	  HAL_Delay(1000);
+
+	  //HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -179,7 +179,7 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
+  huart4.Init.BaudRate = 9600;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
