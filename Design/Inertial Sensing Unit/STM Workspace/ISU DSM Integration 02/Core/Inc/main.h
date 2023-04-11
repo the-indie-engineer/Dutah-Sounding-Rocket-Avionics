@@ -61,8 +61,8 @@ void Error_Handler(void);
 #define CV_Enable_GPIO_Port GPIOA
 #define MT_CS_Pin GPIO_PIN_7
 #define MT_CS_GPIO_Port GPIOA
-#define DS_CS_Pin GPIO_PIN_12
-#define DS_CS_GPIO_Port GPIOB
+#define SD_CS_Pin GPIO_PIN_12
+#define SD_CS_GPIO_Port GPIOB
 #define NCP_DAT_Pin GPIO_PIN_11
 #define NCP_DAT_GPIO_Port GPIOA
 #define NCP_SCK_Pin GPIO_PIN_12

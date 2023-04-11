@@ -151,7 +151,6 @@ int main(void)
     	  	/* Close file */
     	  	f_close(&fil);
 
-    	  	clear_buffer();
   /* USER CODE END 2 */
 
   /* Infinite loop */

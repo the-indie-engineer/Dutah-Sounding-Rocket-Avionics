@@ -124,9 +124,16 @@ FILINFO fno;
 FRESULT fresult;  // result
 UINT br, bw;  // File read/write count
 
+/**** capacity related *****/
+FATFS *pfs;
+DWORD fre_clust;
+uint32_t total, free_space;
+
 #define BUFFER_SIZE 128
 char buffer[BUFFER_SIZE];  // to store strings..
+char rxbuffer[BUFFER_SIZE];
 
+int writepos=0;
 
 /* USER CODE END PV */
 
@@ -149,7 +156,6 @@ static void MX_SPI2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int i=0;
 
 int bufsize (char *buf)
 {
@@ -162,7 +168,6 @@ void clear_buffer (void)
 {
 	for (int i=0; i<BUFFER_SIZE; i++) buffer[i] = '\0';
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -174,42 +179,8 @@ int main(void)
   /* USER CODE BEGIN 1 */
 	timein.seconds = 0;
 
-	fresult = f_mount(&fs, "/", 1);
-	    	if (fresult != FR_OK) printf ("ERROR!!! in mounting SD CARD...\n\n");
-	    	else printf("SD CARD mounted successfully...\n\n");
-
-	    	/* Create second file with read write access and open it */
-	    	  	fresult = f_open(&fil, "file5.txt", FA_CREATE_ALWAYS | FA_WRITE);
-
-	    	  	/* Writing text */
-	    	  	strcpy (buffer, "This is TestFile.txt, written using ...f_write... and it says Hello from Dutah\n");
-
-	    	  	fresult = f_write(&fil, buffer, bufsize(buffer), &bw);
-
-	    	  	printf ("File5.txt created and data is written\n");
-
-	    	  	/* Close file */
-	    	  	f_close(&fil);
 
 
-
-	    	  	// clearing buffer to show that result obtained is from the file
-	    	  	clear_buffer();
-
-	    	  	/* Open second file to read */
-	    	  	fresult = f_open(&fil, "file3.txt", FA_READ);
-	    	  	if (fresult == FR_OK)printf ("file2.txt is open and the data is shown below\n");
-
-	    	  	/* Read data from the file
-	    	  	 * Please see the function details for the arguments */
-	    	  	f_read (&fil, buffer, f_size(&fil), &br);
-	    	  	printf(buffer);
-	    	  	printf("\n\n");
-
-	    	  	/* Close file */
-	    	  	f_close(&fil);
-
-	    	  	clear_buffer();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -273,6 +244,9 @@ int main(void)
   	  Pressure = BMP180_GetPress(0);
   	  trans1.tlm1.Altitude = BMP180_GetAlt(0);
   }
+
+  strcpy(buffer,"Hello Duta'h\n");
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -324,30 +298,48 @@ int main(void)
 		trans1.tlm1.year=time.year;
 
 
-//	  memset(TxBuff,"\0",150);
+		fresult = f_mount(&fs, "/", 1);
+		HAL_Delay(500);
+		fresult = f_open(&fil, "testfile.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE);
+		//	  memset(TxBuff,"\0",150);
+
 	  for(int i=0; i<23; i++)
 	  {
+
 		  memset(tempbuff,'\0',6);
 		  gcvt(trans1.dataframe[i],4,tempbuff);
 		  //strcat(TxBuff,tempbuff);
 		  strcat(tempbuff,",");
 		  HAL_UART_Transmit(&huart4, tempbuff, strlen(tempbuff), 100);
-	  }
-	  /*for(int i=17; i<23; i++)
-	  {
-		  memset(tempbuff,'\0',6);
-		  itoa(trans1.dataframe[i],tempbuff,10);
-		  //strcat(TxBuff,tempbuff);
-		  strcat(tempbuff,",");
-		  HAL_UART_Transmit(&huart4, tempbuff, strlen(tempbuff), 100);
-	  }*/
+		  if(i==22) strcat(tempbuff, "\n");
 
-//	  strcat(TxBuff,"\n");
+
+		  f_lseek(&fil,writepos);
+		  fresult = f_write(&fil, tempbuff, bufsize(tempbuff), &bw);
+		  writepos+=bufsize(tempbuff);
+
+	  }
+
+	  f_close(&fil);
+	  fresult = f_mount(NULL, "/", 1);
+
 	  HAL_UART_Transmit(&huart4, "\n", 1, 100);
 
 
 
-	  	  //HAL_Delay(1000);
+
+
+	  /*fresult = f_lseek(&fil, writepos);
+	  fresult = f_write(&fil, strw, bufsize(strw), &bw);
+	  f_close(&fil);
+	  writepos+=sizeof(strw);
+
+	  fresult = f_open(&fil, "testfile.txt", FA_READ);
+	  f_read (&fil, rxbuffer, f_size(&fil), &br);
+	  f_close(&fil);
+	  fresult = f_mount(NULL, "/", 1);*/
+
+	  HAL_Delay(100);
 
     /* USER CODE END WHILE */
 
@@ -652,7 +644,7 @@ static void MX_SPI2_Init(void)
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -814,7 +806,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, CV_Enable_Pin|MT_CS_Pin|NCP_SCK_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, DS_CS_Pin|HV_En_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, SD_CS_Pin|HV_En_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : CV_Enable_Pin */
   GPIO_InitStruct.Pin = CV_Enable_Pin;
@@ -830,8 +822,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DS_CS_Pin HV_En_Pin */
-  GPIO_InitStruct.Pin = DS_CS_Pin|HV_En_Pin;
+  /*Configure GPIO pins : SD_CS_Pin HV_En_Pin */
+  GPIO_InitStruct.Pin = SD_CS_Pin|HV_En_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

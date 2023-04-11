@@ -121,7 +121,7 @@ int main(void)
     	else printf("SD CARD mounted successfully...\n\n");
 
     	/* Create second file with read write access and open it */
-    	  	fresult = f_open(&fil, "file7.txt", FA_CREATE_ALWAYS | FA_WRITE);
+    	  	fresult = f_open(&fil, "filetest251.txt", FA_CREATE_ALWAYS | FA_WRITE);
 
     	  	/* Writing text */
     	  	strcpy (buffer, "This is TestFile.txt, written using ...f_write... and it says Hello from Dutah\n");
@@ -138,7 +138,7 @@ int main(void)
     	  	clear_buffer();
 
     	  	/* Open second file to read */
-    	  	fresult = f_open(&fil, "file3.txt", FA_READ);
+    	  	fresult = f_open(&fil, "filetest251.txt", FA_READ);
     	  	if (fresult == FR_OK)printf ("file2.txt is open and the data is shown below\n");
 
     	  	/* Read data from the file
@@ -181,15 +181,16 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 15;
-  RCC_OscInitStruct.PLL.PLLN = 216;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 72;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 2;
-  RCC_OscInitStruct.PLL.PLLR = 5;
+  RCC_OscInitStruct.PLL.PLLR = 2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();

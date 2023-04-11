@@ -138,7 +138,7 @@ DRESULT USER_write (
 {
   /* USER CODE BEGIN WRITE */
   /* USER CODE HERE */
-    return SD_disk_write (pdrv, buff, sector, count);
+	return SD_disk_write (pdrv, buff, sector, count);
   /* USER CODE END WRITE */
 }
 #endif /* _USE_WRITE == 1 */
@@ -158,7 +158,8 @@ DRESULT USER_ioctl (
 )
 {
   /* USER CODE BEGIN IOCTL */
-    return SD_disk_ioctl (pdrv, cmd, buff);
+	return SD_disk_ioctl (pdrv, cmd, buff);
+
   /* USER CODE END IOCTL */
 }
 #endif /* _USE_IOCTL == 1 */

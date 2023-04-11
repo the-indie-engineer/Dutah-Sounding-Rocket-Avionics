@@ -23,8 +23,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "uartRingBuffer.h"
-#include "fatfs_sd.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -200,14 +198,14 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-if(timeout >0) timeout--;
+	 FatFsCnt++;
+		  if(FatFsCnt >= 10)
+		  {
+		    FatFsCnt = 0;
+		    SDTimer_Handler();
+		  }
 
-FatFsCnt++;
-	  if(FatFsCnt >= 10)
-	  {
-	    FatFsCnt = 0;
-	    SDTimer_Handler();
-	  }
+if(timeout >0) timeout--;
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
