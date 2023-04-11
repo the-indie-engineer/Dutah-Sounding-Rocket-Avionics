@@ -1,0 +1,200 @@
+Telemetry Viewer v0.7 Settings
+
+GUI Settings:
+
+	tile column count = 3
+	tile row count = 3
+	time format = Only Time
+	show 24-hour time = false
+	show plot tooltips = true
+	smooth scrolling = true
+	show fps and period = false
+	chart index for benchmarks = -1
+	antialiasing level = 8
+
+Communication Settings:
+
+	port = UART: COM3
+	uart baud rate = 115200
+	tcp/udp port number = 8080
+	packet type = CSV
+	sample rate = 10000
+
+13 Data Structure Locations:
+
+	location = 0
+	binary processor = null
+	name = Altitude
+	color = 0xFF0000
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 1
+	binary processor = null
+	name = Ax
+	color = 0x333333
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 2
+	binary processor = null
+	name = Ay
+	color = 0x006699
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 3
+	binary processor = null
+	name = Az
+	color = 0x990099
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 4
+	binary processor = null
+	name = Gx
+	color = 0x990000
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 5
+	binary processor = null
+	name = Gy
+	color = 0xCC6600
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 6
+	binary processor = null
+	name = Gz
+	color = 0x00CCCC
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 7
+	binary processor = null
+	name = CPM Voltage
+	color = 0x00CCCC
+	unit = Volts
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 8
+	binary processor = null
+	name = High Voltage
+	color = 0xCC00FF
+	unit = Volts
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 9
+	binary processor = null
+	name = CPM Current
+	color = 0x00CC00
+	unit = A
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 10
+	binary processor = null
+	name = High Current
+	color = 0xFF6633
+	unit = A
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 15
+	binary processor = null
+	name = Motor Temperature
+	color = 0xFF99CC
+	unit = C
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+	location = 16
+	binary processor = null
+	name = Nose Cone Pressure
+	color = 0xFFFF00
+	unit = 
+	conversion factor a = 1.0
+	conversion factor b = 1.0
+
+Checksum:
+
+	location = -1
+	checksum processor = null
+
+3 Charts:
+
+	chart type = Time Domain
+	top left x = 0
+	top left y = 0
+	bottom right x = 0
+	bottom right y = 0
+	normal datasets = 0
+	bitfield edge states = 
+	bitfield level states = 
+	duration type = Samples
+	duration = 1000
+	x-axis = Sample Count
+	autoscale y-axis minimum = true
+	manual y-axis minimum = -1.0
+	autoscale y-axis maximum = true
+	manual y-axis maximum = 1.0
+	show x-axis title = true
+	show x-axis scale = true
+	show y-axis title = true
+	show y-axis scale = true
+	show legend = true
+	cached mode = false
+
+	chart type = Time Domain
+	top left x = 1
+	top left y = 0
+	bottom right x = 1
+	bottom right y = 0
+	normal datasets = 1,2,3
+	bitfield edge states = 
+	bitfield level states = 
+	duration type = Samples
+	duration = 1000
+	x-axis = Sample Count
+	autoscale y-axis minimum = true
+	manual y-axis minimum = -1.0
+	autoscale y-axis maximum = true
+	manual y-axis maximum = 1.0
+	show x-axis title = true
+	show x-axis scale = true
+	show y-axis title = true
+	show y-axis scale = true
+	show legend = true
+	cached mode = false
+
+	chart type = Time Domain
+	top left x = 2
+	top left y = 0
+	bottom right x = 2
+	bottom right y = 0
+	normal datasets = 4,5
+	bitfield edge states = 
+	bitfield level states = 
+	duration type = Samples
+	duration = 1000
+	x-axis = Sample Count
+	autoscale y-axis minimum = true
+	manual y-axis minimum = -1.0
+	autoscale y-axis maximum = true
+	manual y-axis maximum = 1.0
+	show x-axis title = true
+	show x-axis scale = true
+	show y-axis title = true
+	show y-axis scale = true
+	show legend = true
+	cached mode = false
