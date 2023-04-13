@@ -61,21 +61,24 @@ static void MX_USART1_UART_Init(void);
 char rx_data[1]={0};
 bool Sec_key = 0, Arm_switch = 0, Ign_switch = 0;
 bool seq_flag = 0;
-bool ignition = 0;
 //GMFS status Signals
-char key[1]="K";
-char arm[1]="A";
-char launch[1]="L";
-char pre_flight_check[1]="C";
-char kill[1]="K";
-char error[1]="E";
-char ignite[1]="I";
-void seq_check()
-	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 0) seq_flag = 1;
-		else if(Sec_key==0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)==1) seq_flag=0;
-
-	}
+char key_ack='K';
+char arm_ack='A';
+char launch_ack='L';
+char isu_check_ack='C';
+char kill='K';
+char error_ack='E';
+char ignite_ack='I';
+void ignition()
+{
+HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
+HAL_UART_Transmit(&huart1, ignite_ack, sizeof(ignite_ack), 100);
+HAL_Delay(100);
+}
+void isu_pre_check()
+{
+	;
+}
 /* USER CODE END 0 */
 
 /**
@@ -119,60 +122,19 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  seq_check();
-	  	if(seq_flag ==1){
-	  		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 1 || Sec_key == 1)
-	  		{
-	  			Sec_key=1;
-	  			HAL_UART_Transmit(&huart1, key, sizeof(key), 100);
-
-	  			if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && Arm_switch == 0  ) {
-	  				Sec_key = 0; // Notify the user to reset the inputs
-	  				seq_flag = 0;
-	  				Arm_switch = 0;
-	  				Ign_switch = 0;
-	  				HAL_UART_Transmit(&huart1, error, sizeof(error), 100);
-	  			}
-
-	  			else{
-	  				if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 1 || Arm_switch == 1 ){
-	  					Arm_switch = 1;
-	  					HAL_UART_Transmit(&huart1, arm, sizeof(arm), 100);
-
-	  					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5) == 0) Arm_switch = 0;
-	  					HAL_UART_Transmit(&huart1, error, sizeof(error), 100);
-
-	  					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 1 || Ign_switch == 1 ){
-	  						HAL_UART_Transmit(&huart1, launch, sizeof(launch), 100);
-	  						HAL_Delay(5000);
-
-	  						if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 1) {
-	  							Ign_switch = 1;
-	  							HAL_UART_Transmit(&huart1, ignite, sizeof(ignite), 100);
-	  							HAL_Delay(2000);
-	  						HAL_Delay(200);
-	  						exit(0);
-	  						}
-	  						else
-	  						{
-	  							Sec_key=0;
-	  							Arm_switch = 0;
-	  							seq_flag = 0;
-	  							HAL_UART_Transmit(&huart1, error, sizeof(error), 100);
-
-	  						}
-
-	  					}
-	  				}
-	  			}
-	  		}
-
-	      /* USER CODE END WHILE */
-
-	      /* USER CODE BEGIN 3 */
-	    }
-	  	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1) //kill switch)
-	  	HAL_UART_Transmit(&huart1, kill, sizeof(kill), 100);
+	  if(rx_data=='F')
+	  {
+	  		HAL_UART_Transmit(&huart1, key_ack, sizeof(key_ack), 100);
+	  		if(rx_data=='B')
+	  		HAL_UART_Transmit(&huart1, arm_ack, sizeof(arm_ack), 100);
+	  		if(rx_data=='D')
+	  		isu_pre_check();
+	  	    HAL_UART_Transmit(&huart1, isu_check_ack, sizeof(isu_check_ack), 100);
+	  	    if(rx_data=='I')
+	        ignition();
+	  }
+	  else
+	  HAL_UART_Transmit(&huart1, error_ack, sizeof(error_ack), 100);
   }
   /* USER CODE END 3 */
 }
@@ -286,22 +248,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : Security_Key_Pin ARM_Switch_Pin Launch_Switch_Pin */
-  GPIO_InitStruct.Pin = Security_Key_Pin|ARM_Switch_Pin|Launch_Switch_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : LED_Pin */
-  GPIO_InitStruct.Pin = LED_Pin;
+  /*Configure GPIO pin : PB5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 

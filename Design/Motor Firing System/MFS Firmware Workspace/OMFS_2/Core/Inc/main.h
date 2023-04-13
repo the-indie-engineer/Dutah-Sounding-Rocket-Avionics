@@ -57,14 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define Security_Key_Pin GPIO_PIN_1
-#define Security_Key_GPIO_Port GPIOA
-#define ARM_Switch_Pin GPIO_PIN_5
-#define ARM_Switch_GPIO_Port GPIOA
-#define Launch_Switch_Pin GPIO_PIN_6
-#define Launch_Switch_GPIO_Port GPIOA
-#define LED_Pin GPIO_PIN_7
-#define LED_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

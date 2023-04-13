@@ -63,18 +63,15 @@ bool Sec_key = 0, Arm_switch = 0, Ign_switch = 0;
 bool seq_flag = 0;
 bool ignition = 0;
 //GMFS status Signals
-char key[1]="K";
-char arm[1]="A";
-char launch[1]="L";
-char pre_flight_check[1]="C";
-char kill[1]="K";
-char error[1]="E";
-char ignite[1]="I";
+char key='F';
+char arm='B';
+char isu_check='D';
+char kill='K';
+char ignite='I';
 void seq_check()
 	{
 		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 0) seq_flag = 1;
 		else if(Sec_key==0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)==1) seq_flag=0;
-
 	}
 /* USER CODE END 0 */
 /**
@@ -130,25 +127,19 @@ int main(void)
 	  				seq_flag = 0;
 	  				Arm_switch = 0;
 	  				Ign_switch = 0;
-	  				HAL_UART_Transmit(&huart1, error, sizeof(error), 100);
 	  			}
-
 	  			else{
 	  				if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 1 || Arm_switch == 1 ){
 	  					Arm_switch = 1;
 	  					HAL_UART_Transmit(&huart1, arm, sizeof(arm), 100);
-
+	  					HAL_Delay(1000);
+	  					HAL_UART_Transmit(&huart1, isu_check, sizeof(isu_check), 100);
 	  					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5) == 0) Arm_switch = 0;
-	  					HAL_UART_Transmit(&huart1, error, sizeof(error), 100);
+	  					HAL_Delay(5000);
 
-	  					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 1 || Ign_switch == 1 ){
-	  						HAL_UART_Transmit(&huart1, launch, sizeof(launch), 100);
-	  						HAL_Delay(5000);
-
-	  						if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 1) {
-	  							Ign_switch = 1;
-	  							HAL_UART_Transmit(&huart1, ignite, sizeof(ignite), 100);
-	  							HAL_Delay(2000);
+	  					if(rx_data=='C')
+	  					HAL_UART_Transmit(&huart1, ignite, sizeof(ignite), 100);
+	  					HAL_Delay(2000);
 	  						HAL_Delay(200);
 	  						exit(0);
 	  						}
@@ -157,22 +148,19 @@ int main(void)
 	  							Sec_key=0;
 	  							Arm_switch = 0;
 	  							seq_flag = 0;
-	  							HAL_UART_Transmit(&huart1, error, sizeof(error), 100);
 
 	  						}
 
 	  					}
 	  				}
 	  			}
-	  		}
+	  	        if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1) //kill switch)
+	  		  	HAL_UART_Transmit(&huart1, kill, sizeof(kill), 100);
 
 	      /* USER CODE END WHILE */
 
 	      /* USER CODE BEGIN 3 */
 	    }
-	  	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1) //kill switch)
-	  	HAL_UART_Transmit(&huart1, kill, sizeof(kill), 100);
-  }
   /* USER CODE END 3 */
 }
 

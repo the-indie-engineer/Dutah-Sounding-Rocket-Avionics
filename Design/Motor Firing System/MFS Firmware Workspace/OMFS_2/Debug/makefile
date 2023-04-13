@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := GMFS_2
+BUILD_ARTIFACT_NAME := OMFS_2
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-GMFS_2.elf \
+OMFS_2.elf \
 
 MAP_FILES += \
-GMFS_2.map \
+OMFS_2.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-GMFS_2.list \
+OMFS_2.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: GMFS_2.elf secondary-outputs
+main-build: OMFS_2.elf secondary-outputs
 
 # Tool invocations
-GMFS_2.elf GMFS_2.map: $(OBJS) $(USER_OBJS) C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor\ Firing\ System\MFS\ Firmware\ Workspace\GMFS_2\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "GMFS_2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\GMFS_2\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GMFS_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+OMFS_2.elf OMFS_2.map: $(OBJS) $(USER_OBJS) C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor\ Firing\ System\MFS\ Firmware\ Workspace\OMFS_2\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "OMFS_2.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\OMFS_2\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OMFS_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-GMFS_2.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "GMFS_2.list"
+OMFS_2.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "OMFS_2.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) GMFS_2.elf GMFS_2.list GMFS_2.map default.size.stdout
+	-$(RM) OMFS_2.elf OMFS_2.list OMFS_2.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
