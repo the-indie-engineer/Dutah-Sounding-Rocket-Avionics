@@ -64,6 +64,7 @@ SPI_HandleTypeDef hspi2;
 TIM_HandleTypeDef htim1;
 
 UART_HandleTypeDef huart4;
+UART_HandleTypeDef huart5;
 extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
@@ -150,6 +151,7 @@ static void MX_I2C2_Init(void);
 static void MX_UART4_Init(void);
 static void MX_I2C3_Init(void);
 static void MX_SPI2_Init(void);
+static void MX_UART5_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -212,6 +214,7 @@ int main(void)
   MX_I2C3_Init();
   MX_SPI2_Init();
   MX_FATFS_Init();
+  MX_UART5_Init();
   /* USER CODE BEGIN 2 */
   HAL_ADC_Init(&hadc1);
   MPU6050_Init();
@@ -283,9 +286,9 @@ int main(void)
 	  trans1.tlm1.Gz=Gz;
 
 
-	  HAL_GPIO_WritePin(GPIOA, CV_En_Pin, En_Voltage_ui);
+	  HAL_GPIO_WritePin(GPIOA, CV_En_Pin, 1);
 	  trans1.tlm1.CPM_Voltage = dmaOut[0]*(5.0/4096.0);
-	  HAL_GPIO_WritePin(HV_En_GPIO_Port, HV_En_Pin, En_Voltage_ui);
+	  HAL_GPIO_WritePin(HV_En_GPIO_Port, HV_En_Pin, 1);
 	  trans1.tlm1.H_Voltage=dmaOut[3]*(9.36/4096);
 
 	  HAL_Delay(100);
@@ -739,6 +742,39 @@ static void MX_UART4_Init(void)
 }
 
 /**
+  * @brief UART5 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_UART5_Init(void)
+{
+
+  /* USER CODE BEGIN UART5_Init 0 */
+
+  /* USER CODE END UART5_Init 0 */
+
+  /* USER CODE BEGIN UART5_Init 1 */
+
+  /* USER CODE END UART5_Init 1 */
+  huart5.Instance = UART5;
+  huart5.Init.BaudRate = 115200;
+  huart5.Init.WordLength = UART_WORDLENGTH_8B;
+  huart5.Init.StopBits = UART_STOPBITS_1;
+  huart5.Init.Parity = UART_PARITY_NONE;
+  huart5.Init.Mode = UART_MODE_TX_RX;
+  huart5.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart5.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart5) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN UART5_Init 2 */
+
+  /* USER CODE END UART5_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -801,6 +837,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, CV_Enable_Pin|MT_CS_Pin|NCP_SCK_Pin, GPIO_PIN_RESET);
