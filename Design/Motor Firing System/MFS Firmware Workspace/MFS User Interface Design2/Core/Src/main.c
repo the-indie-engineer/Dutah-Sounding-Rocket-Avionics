@@ -59,7 +59,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-char tx_data='L';
+char tx_data='S';
 bool Sec_key = 0, Arm_switch = 0, Ign_switch = 0;
 bool seq_flag = 0;
 bool ignition = 0;
@@ -112,6 +112,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	while (1)
 	{
+		HAL_UART_Transmit(&huart2, tx_data, strlen(tx_data),100);
 		seq_check();
 		if(seq_flag ==1){
 
@@ -137,6 +138,7 @@ int main(void)
 							HAL_Delay(5000);
 							if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8) == 1) {
 								Ign_switch = 1;
+								tx_data='L';
 								HAL_UART_Transmit(&huart2, tx_data, strlen(tx_data),100);
 								HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11,1);
 								HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,0);
@@ -235,7 +237,7 @@ static void MX_USART2_UART_Init(void)
 
   /* USER CODE END USART2_Init 1 */
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 115200;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;

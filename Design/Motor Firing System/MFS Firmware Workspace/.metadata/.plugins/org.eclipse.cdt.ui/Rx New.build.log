@@ -1,0 +1,20 @@
+15:42:25 **** Incremental Build of configuration Debug for project Rx New ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Rx New.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Dutah Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\Rx New\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Rx New.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Rx New.elf
+ 
+arm-none-eabi-size   Rx\ New.elf 
+arm-none-eabi-objdump -h -S  Rx\ New.elf  > "Rx New.list"
+arm-none-eabi-objcopy  -O binary  Rx\ New.elf  "Rx New.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8124	     20	   1652	   9796	   2644	Rx New.elf
+Finished building: default.size.stdout
+ 
+Finished building: Rx New.bin
+ 
+Finished building: Rx New.list
+ 
+
+15:42:26 Build Finished. 0 errors, 0 warnings. (took 521ms)
+
