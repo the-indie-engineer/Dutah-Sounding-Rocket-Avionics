@@ -1,9 +1,11 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GMFS_2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:XBEE_UART Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:XBEE_UART_RX Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Blink Test Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MFS User Interface Design Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:ADC\ F446RE\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Blink\ Test\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Blink\ Test\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GMFS_2\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GMFS_2\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:MFS\ User\ Interface\ Design\ Debug/activeLaunchMode=debug
