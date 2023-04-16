@@ -27,7 +27,6 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -72,7 +71,6 @@ char ignite_ack='I';
 void ignition()
 {
 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
-HAL_UART_Transmit(&huart1, ignite_ack, sizeof(ignite_ack), 100);
 HAL_Delay(100);
 }
 void isu_pre_check()
@@ -131,7 +129,9 @@ int main(void)
 	  		isu_pre_check();
 	  	    HAL_UART_Transmit(&huart1, isu_check_ack, sizeof(isu_check_ack), 100);
 	  	    if(rx_data=='I')
-	        ignition();
+	  	    HAL_UART_Transmit(&huart1, ignite_ack, sizeof(ignite_ack), 100);
+	  	    if(rx_data=='L')
+	  	    HAL_UART_Transmit(&huart1, launch_ack, sizeof(launch_ack), 100);
 	  }
 	  else
 	  HAL_UART_Transmit(&huart1, error_ack, sizeof(error_ack), 100);

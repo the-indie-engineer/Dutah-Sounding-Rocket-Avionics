@@ -1,5 +1,0 @@
-main.c:60:6:seq_check	8	static
-main.c:73:5:main	8	static
-main.c:165:6:SystemClock_Config	88	static
-main.c:217:13:MX_GPIO_Init	40	static
-main.c:261:6:Error_Handler	4	static,ignoring_inline_asm

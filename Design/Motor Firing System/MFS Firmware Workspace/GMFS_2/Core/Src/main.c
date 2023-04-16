@@ -58,7 +58,8 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-char rx_data[1]={0};
+char rx_data=0;
+char tx_data=0;
 bool Sec_key = 0, Arm_switch = 0, Ign_switch = 0;
 bool seq_flag = 0;
 bool ignition = 0;
@@ -67,13 +68,15 @@ char key='F';
 char arm='B';
 char isu_check='D';
 char kill='K';
-char ignite='I';
+char ignition_switch='I';
+char launch='L';
 void seq_check()
 	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 0) seq_flag = 1;
-		else if(Sec_key==0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)==1) seq_flag=0;
+		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3) == 0 && HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10)== 0 && HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8)== 0) seq_flag = 1;
+		else if(Sec_key==0 && HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10)==1) seq_flag=0;
 	}
 /* USER CODE END 0 */
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -117,50 +120,61 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  seq_check();
 	  	if(seq_flag ==1){
-	  		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 1 || Sec_key == 1)
+	  		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3) == 1 || Sec_key == 1)
 	  		{
 	  			Sec_key=1;
 	  			HAL_UART_Transmit(&huart1, key, sizeof(key), 100);
-
-	  			if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && Arm_switch == 0  ) {
+	  			tx_data=key;
+	  			if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3) == 0 && Arm_switch == 0  ) {
 	  				Sec_key = 0; // Notify the user to reset the inputs
 	  				seq_flag = 0;
 	  				Arm_switch = 0;
 	  				Ign_switch = 0;
 	  			}
 	  			else{
-	  				if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 1 || Arm_switch == 1 ){
+	  				if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10)== 1 || Arm_switch == 1 ){
 	  					Arm_switch = 1;
+	  					tx_data=arm;
 	  					HAL_UART_Transmit(&huart1, arm, sizeof(arm), 100);
-	  					HAL_Delay(1000);
-	  					HAL_UART_Transmit(&huart1, isu_check, sizeof(isu_check), 100);
-	  					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5) == 0) Arm_switch = 0;
-	  					HAL_Delay(5000);
-
-	  					if(rx_data=='C')
-	  					HAL_UART_Transmit(&huart1, ignite, sizeof(ignite), 100);
 	  					HAL_Delay(2000);
-	  						HAL_Delay(200);
-	  						exit(0);
+	  					tx_data=isu_check;
+	  					HAL_UART_Transmit(&huart1, isu_check, sizeof(isu_check), 100);
+	  					if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == 0) Arm_switch = 0;{
+	  					if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8) == 1 || Ign_switch == 1){
+	  						tx_data=ignition_switch;
+	  						HAL_UART_Transmit(&huart1, ignition_switch, sizeof(ignition_switch), 100);
+	  						Ign_switch = 1;
+	  						HAL_Delay(2000);
+	  						tx_data=launch;
+	  						HAL_UART_Transmit(&huart1, launch, sizeof(launch), 100);
+
+	  					}
+	  					if(seq_flag == 0 && (rx_data=='I'||rx_data=='L')){
+						HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11,1);
+						HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,1);
+						HAL_Delay(2000);
+						HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,0);
+						HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11,0);
 	  						}
 	  						else
 	  						{
 	  							Sec_key=0;
 	  							Arm_switch = 0;
 	  							seq_flag = 0;
-
+	  						}
 	  						}
 
-	  					}
 	  				}
 	  			}
-	  	        if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1) //kill switch)
-	  		  	HAL_UART_Transmit(&huart1, kill, sizeof(kill), 100);
+	  		}
+//	  	        if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_7) == 1) //kill switch)
+//	  		  	HAL_UART_Transmit(&huart1, kill, sizeof(kill), 100);
 
 	      /* USER CODE END WHILE */
 
 	      /* USER CODE BEGIN 3 */
 	    }
+	  	}
   /* USER CODE END 3 */
 }
 
@@ -275,20 +289,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, LED_Pin|Buzzer_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : Security_Key_Pin Arm_Switch_Pin Launch_Switch_Pin */
-  GPIO_InitStruct.Pin = Security_Key_Pin|Arm_Switch_Pin|Launch_Switch_Pin;
+  /*Configure GPIO pins : Security_Key_Pin Ignition_Switch_Pin Arm_Switch_Pin */
+  GPIO_InitStruct.Pin = Security_Key_Pin|Ignition_Switch_Pin|Arm_Switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LED_Pin */
-  GPIO_InitStruct.Pin = LED_Pin;
+  /*Configure GPIO pins : LED_Pin Buzzer_Pin */
+  GPIO_InitStruct.Pin = LED_Pin|Buzzer_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
 }
 

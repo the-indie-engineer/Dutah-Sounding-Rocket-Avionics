@@ -57,14 +57,16 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define Security_Key_Pin GPIO_PIN_1
-#define Security_Key_GPIO_Port GPIOA
-#define Arm_Switch_Pin GPIO_PIN_5
-#define Arm_Switch_GPIO_Port GPIOA
-#define Launch_Switch_Pin GPIO_PIN_6
-#define Launch_Switch_GPIO_Port GPIOA
+#define Security_Key_Pin GPIO_PIN_3
+#define Security_Key_GPIO_Port GPIOC
 #define LED_Pin GPIO_PIN_7
-#define LED_GPIO_Port GPIOA
+#define LED_GPIO_Port GPIOC
+#define Ignition_Switch_Pin GPIO_PIN_8
+#define Ignition_Switch_GPIO_Port GPIOC
+#define Arm_Switch_Pin GPIO_PIN_10
+#define Arm_Switch_GPIO_Port GPIOC
+#define Buzzer_Pin GPIO_PIN_11
+#define Buzzer_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 

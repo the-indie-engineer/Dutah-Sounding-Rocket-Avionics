@@ -1,27 +1,26 @@
-11:38:02 **** Incremental Build of configuration Debug for project OMFS_2 ****
+11:37:18 **** Incremental Build of configuration Debug for project GMFS_2 ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:114:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
-  114 |   HAL_UART_Receive_DMA(&huart1, rx_data, sizeof(rx_data));
+../Core/Src/main.c:111:33: warning: passing argument 2 of 'HAL_UART_Receive_DMA' makes pointer from integer without a cast [-Wint-conversion]
+  111 |   HAL_UART_Receive_DMA(&huart1, rx_data, sizeof(rx_data));
       |                                 ^~~~~~~
       |                                 |
-      |                                 char *
+      |                                 char
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
                  from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:727:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:727:76: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char'
   727 | HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
       |                                                                   ~~~~~~~~~^~~~~
-../Core/Src/main.c:124:14: warning: comparison between pointer and integer
-  124 |    if(rx_data=='F')
-      |              ^~
-../Core/Src/main.c:126:33: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  126 |      HAL_UART_Transmit(&huart1, key_ack, sizeof(key_ack), 100);
-      |                                 ^~~~~~~
-      |                                 |
-      |                                 char
+../Core/Src/main.c:126:34: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  126 |       HAL_UART_Transmit(&huart1, key, sizeof(key), 100);
+      |                                  ^~~
+      |                                  |
+      |                                  char
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
@@ -29,27 +28,9 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
   722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c:127:16: warning: comparison between pointer and integer
-  127 |      if(rx_data=='B')
-      |                ^~
-../Core/Src/main.c:128:33: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  128 |      HAL_UART_Transmit(&huart1, arm_ack, sizeof(arm_ack), 100);
-      |                                 ^~~~~~~
-      |                                 |
-      |                                 char
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
-  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c:129:16: warning: comparison between pointer and integer
-  129 |      if(rx_data=='D')
-      |                ^~
-../Core/Src/main.c:131:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  131 |         HAL_UART_Transmit(&huart1, isu_check_ack, sizeof(isu_check_ack), 100);
-      |                                    ^~~~~~~~~~~~~
+../Core/Src/main.c:138:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  138 |         HAL_UART_Transmit(&huart1, arm, sizeof(arm), 100);
+      |                                    ^~~
       |                                    |
       |                                    char
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
@@ -59,12 +40,9 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
   722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c:132:19: warning: comparison between pointer and integer
-  132 |         if(rx_data=='I')
-      |                   ^~
-../Core/Src/main.c:133:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  133 |         HAL_UART_Transmit(&huart1, ignite_ack, sizeof(ignite_ack), 100);
-      |                                    ^~~~~~~~~~
+../Core/Src/main.c:141:36: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  141 |         HAL_UART_Transmit(&huart1, isu_check, sizeof(isu_check), 100);
+      |                                    ^~~~~~~~~
       |                                    |
       |                                    char
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
@@ -74,11 +52,17 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
   722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-../Core/Src/main.c:137:31: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
-  137 |    HAL_UART_Transmit(&huart1, error_ack, sizeof(error_ack), 100);
-      |                               ^~~~~~~~~
-      |                               |
-      |                               char
+../Core/Src/main.c:142:9: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  142 |         if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == 0) Arm_switch = 0;{
+      |         ^~
+../Core/Src/main.c:142:70: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  142 |         if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == 0) Arm_switch = 0;{
+      |                                                                      ^
+../Core/Src/main.c:145:37: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  145 |          HAL_UART_Transmit(&huart1, ignition_switch, sizeof(ignition_switch), 100);
+      |                                     ^~~~~~~~~~~~~~~
+      |                                     |
+      |                                     char
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
@@ -86,14 +70,40 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
   722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
       |                                                                ~~~~~~~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "OMFS_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\OMFS_2\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OMFS_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: OMFS_2.elf
+../Core/Src/main.c:149:37: warning: passing argument 2 of 'HAL_UART_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  149 |          HAL_UART_Transmit(&huart1, launch, sizeof(launch), 100);
+      |                                     ^~~~~~
+      |                                     |
+      |                                     char
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:722:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char'
+  722 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "GMFS_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\student\Desktop\THISHON\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\GMFS_2\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GMFS_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GMFS_2.elf
  
-arm-none-eabi-size   OMFS_2.elf 
-arm-none-eabi-objdump -h -S  OMFS_2.elf  > "OMFS_2.list"
+arm-none-eabi-size   GMFS_2.elf 
+arm-none-eabi-objdump -h -S  GMFS_2.elf  > "GMFS_2.list"
    text	   data	    bss	    dec	    hex	filename
-  14748	     28	   1740	  16516	   4084	OMFS_2.elf
+  15196	     28	   1740	  16964	   4244	GMFS_2.elf
 Finished building: default.size.stdout
  
-Finished building: OMFS_2.list
+Finished building: GMFS_2.list
+ 
+11:39:40 **** Incremental Build of configuration Debug for project GMFS_2 ****
+make -j16 all 
+arm-none-eabi-size   GMFS_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15196	     28	   1740	  16964	   4244	GMFS_2.elf
+Finished building: default.size.stdout
+ 
+11:41:04 **** Incremental Build of configuration Debug for project GMFS_2 ****
+make -j16 all 
+arm-none-eabi-size   GMFS_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  15196	     28	   1740	  16964	   4244	GMFS_2.elf
+Finished building: default.size.stdout
  

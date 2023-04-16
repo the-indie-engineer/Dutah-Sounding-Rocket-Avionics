@@ -1,4 +1,5 @@
-rx_data
-rx1_data
 tx_data
-tx_end
+seq_flag
+Sec_key
+Arm_switch
+Ign_switch
