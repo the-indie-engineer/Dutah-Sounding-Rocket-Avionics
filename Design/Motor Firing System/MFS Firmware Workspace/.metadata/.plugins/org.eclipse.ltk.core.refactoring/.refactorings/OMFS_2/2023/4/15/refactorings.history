@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;OMFS_2/GMFS_2.ioc&apos; to &apos;OMFS_2.ioc&apos;" description="Rename resource &apos;GMFS_2.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="GMFS_2.ioc" name="OMFS_2.ioc" stamp="1681304671182" updateReferences="true"/>
-</session>
