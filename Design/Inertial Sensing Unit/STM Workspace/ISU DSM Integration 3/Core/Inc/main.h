@@ -63,6 +63,12 @@ void Error_Handler(void);
 #define MT_CS_GPIO_Port GPIOA
 #define SD_CS_Pin GPIO_PIN_12
 #define SD_CS_GPIO_Port GPIOB
+#define Motor_Pin GPIO_PIN_6
+#define Motor_GPIO_Port GPIOC
+#define Drougue_Parachute_Pin GPIO_PIN_7
+#define Drougue_Parachute_GPIO_Port GPIOC
+#define Main_Parachute_Pin GPIO_PIN_8
+#define Main_Parachute_GPIO_Port GPIOC
 #define NCP_DAT_Pin GPIO_PIN_11
 #define NCP_DAT_GPIO_Port GPIOA
 #define NCP_SCK_Pin GPIO_PIN_12

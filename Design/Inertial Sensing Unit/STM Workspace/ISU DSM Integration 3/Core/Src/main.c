@@ -70,7 +70,7 @@ DMA_HandleTypeDef hdma_uart5_rx;
 DMA_HandleTypeDef hdma_uart5_tx;
 
 /* USER CODE BEGIN PV */
-char rx_data;
+char rx_data[2];
 float Ax, Ay, Az, Gx, Gy, Gz;
 
 uint8_t err_gyro = 0;
@@ -139,6 +139,7 @@ char rxbuffer[BUFFER_SIZE];
 
 int writepos=0;
 
+tx_data[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -219,6 +220,10 @@ int main(void)
   MX_FATFS_Init();
   MX_UART5_Init();
   /* USER CODE BEGIN 2 */
+
+  HAL_UART_Receive_DMA(&huart5,rx_data, sizeof(rx_data));
+
+
   HAL_ADC_Init(&hadc1);
   MPU6050_Init();
   HAL_ADC_Start_DMA(&hadc1, dmaOut, 4);
@@ -259,7 +264,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_UART_Receive(&huart5,rx_data, 1,100);
+	  if(rx_data[0]=='T')
+	  {
+		 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, 1);
+				 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, 1);
+				 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, 1);
+	  }
    HAL_Delay(5);
 	  if(Wait_for("GGA")==1)
 	  {
@@ -856,6 +866,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SD_CS_Pin|HV_En_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, Motor_Pin|Drougue_Parachute_Pin|Main_Parachute_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : CV_Enable_Pin */
   GPIO_InitStruct.Pin = CV_Enable_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -876,6 +889,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Motor_Pin Drougue_Parachute_Pin Main_Parachute_Pin */
+  GPIO_InitStruct.Pin = Motor_Pin|Drougue_Parachute_Pin|Main_Parachute_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : NCP_DAT_Pin */
   GPIO_InitStruct.Pin = NCP_DAT_Pin;
