@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;GMFS_1/UART Tx.ioc&apos; to &apos;GMFS_1.ioc&apos;" description="Rename resource &apos;UART Tx.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="UART Tx.ioc" name="GMFS_1.ioc" stamp="1681270997483" updateReferences="true"/>
+</session>

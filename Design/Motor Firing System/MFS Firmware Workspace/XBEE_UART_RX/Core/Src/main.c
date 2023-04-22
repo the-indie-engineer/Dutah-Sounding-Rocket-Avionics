@@ -44,8 +44,9 @@ DMA_HandleTypeDef hdma_uart4_rx;
 DMA_HandleTypeDef hdma_uart4_tx;
 
 /* USER CODE BEGIN PV */
-char rx_data[1]={0};
-char tx1_data[1]="a";
+char rx_data[20]={0};
+char rx_data_copy[20]={0};
+char tx1_data[20]="Hello Dutah";
 /*void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart)
 {
   HAL_GPIO_TogglePin (GPIOA, GPIO_PIN_5);  // toggle PA0
@@ -112,6 +113,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  HAL_UART_Receive_DMA(&huart4, rx_data, sizeof(rx_data));
+	  for(int i=0;i<sizeof(rx_data);i++ )
+	  {
+		  rx_data_copy[i]=rx_data[i];
+	  }
 	  HAL_UART_Transmit(&huart4, tx1_data, sizeof(tx1_data),100);
   }
   /* USER CODE END 3 */

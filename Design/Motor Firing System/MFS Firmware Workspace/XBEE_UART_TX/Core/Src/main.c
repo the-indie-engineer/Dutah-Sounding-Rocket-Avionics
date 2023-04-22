@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,8 +44,9 @@ DMA_HandleTypeDef hdma_uart4_rx;
 DMA_HandleTypeDef hdma_uart4_tx;
 
 /* USER CODE BEGIN PV */
-char tx_data[1]="b";
-char rx1_data[1]={0};
+char tx_data[20]={'\0'};
+char rx1_data[20]={0};
+char tx_end[22]={0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -69,7 +70,7 @@ static void MX_UART4_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+//uint8_t n=sizeof(tx_data);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -101,13 +102,21 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
-	  HAL_UART_Transmit(&huart4, tx_data, sizeof(tx_data),100);
+    /* USER CODE BEGIN 3 *
+     */
+	  sprintf(tx_data,"Start Ignition");
+	  strcat(tx_end,"<");
+	  for(int i=1;i<strlen(tx_data);i++)
+	  {
+		  if(tx_data[i-1]!='\0')
+		  tx_end[i]=tx_data[i-1];
+	  }
+	  strcat(tx_end,">");
+	  HAL_UART_Transmit(&huart4, tx_end, strlen(tx_end),100);
 	  HAL_UART_Receive_DMA(&huart4, rx1_data, sizeof(rx1_data));
   }
   /* USER CODE END 3 */
 }
-
 /**
   * @brief System Clock Configuration
   * @retval None

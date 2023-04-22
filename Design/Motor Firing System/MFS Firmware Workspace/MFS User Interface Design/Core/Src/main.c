@@ -59,8 +59,8 @@ bool seq_flag = 0;
 bool ignition = 0;
 void seq_check()
 	{
-		if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 0) seq_flag = 1;
-		else if(Sec_key==0 && HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)==1) seq_flag=0;
+		if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3) == 0 && HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10)== 0 && HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8) == 0) seq_flag = 1;
+		else if(Sec_key==0 && HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == 1) seq_flag=0;
 
 	}
 
@@ -107,11 +107,11 @@ int main(void)
 		seq_check();
 		if(seq_flag ==1){
 
-			if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 1 || Sec_key == 1)
+			if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3) == 1 || Sec_key == 1)
 			{
 				Sec_key=1;
 
-				if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_1) == 0 && Arm_switch == 0  ) {
+				if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3) == 0 && Arm_switch == 0  ) {
 					Sec_key = 0; // Notify the user to reset the inputs
 					seq_flag = 0;
 					Arm_switch = 0;
@@ -119,24 +119,25 @@ int main(void)
 				}
 
 				else{
-					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5)== 1 || Arm_switch == 1 ){
+					if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10)== 1 || Arm_switch == 1 ){
 						Arm_switch = 1;
 
-						if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_5) == 0) Arm_switch = 0;
+						if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_10) == 0) Arm_switch = 0;
 
 
-						if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 1 || Ign_switch == 1 ){
+						if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8) == 1 || Ign_switch == 1 ){
 							HAL_Delay(5000);
-							if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6) == 1) {
+							if(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_8) == 1) {
 								Ign_switch = 1;
+								HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11,1);
+								HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,0);
+							HAL_Delay(2000);
+							HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7,1);
+							HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11,0);
 
-								HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
-								HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, 0);
-								HAL_Delay(2000);
-								HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_7);
 
 
-								exit(0);
+
 							}
 							else
 							{
@@ -219,34 +220,34 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(Ignitionpin_GPIO_Port, Ignitionpin_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(Buzzer_GPIO_Port, Buzzer_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : Security_key_Pin Arm_Switch_Pin Launch_switch_Pin */
-  GPIO_InitStruct.Pin = Security_key_Pin|Arm_Switch_Pin|Launch_switch_Pin;
+  /*Configure GPIO pins : Security_key_Pin PC8 Arm_Switch_Pin */
+  GPIO_InitStruct.Pin = Security_key_Pin|GPIO_PIN_8|Arm_Switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LED_Pin */
   GPIO_InitStruct.Pin = LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Ignitionpin_Pin */
-  GPIO_InitStruct.Pin = Ignitionpin_Pin;
+  /*Configure GPIO pin : Buzzer_Pin */
+  GPIO_InitStruct.Pin = Buzzer_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(Ignitionpin_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(Buzzer_GPIO_Port, &GPIO_InitStruct);
 
 }
 

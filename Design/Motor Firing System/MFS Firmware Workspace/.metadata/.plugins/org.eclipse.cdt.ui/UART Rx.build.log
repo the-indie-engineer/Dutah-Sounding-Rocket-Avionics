@@ -1,0 +1,10 @@
+14:23:27 **** Incremental Build of configuration Debug for project UART Rx ****
+make -j16 all 
+arm-none-eabi-size   UART\ Rx.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14224	     20	   1748	  15992	   3e78	UART Rx.elf
+Finished building: default.size.stdout
+ 
+
+14:23:27 Build Finished. 0 errors, 0 warnings. (took 146ms)
+

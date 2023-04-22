@@ -1,0 +1,10 @@
+15:41:37 **** Incremental Build of configuration Debug for project Tx New ****
+make -j16 all 
+arm-none-eabi-size   Tx\ New.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8216	     20	   1644	   9880	   2698	Tx New.elf
+Finished building: default.size.stdout
+ 
+
+15:41:37 Build Finished. 0 errors, 0 warnings. (took 190ms)
+
