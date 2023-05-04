@@ -60,8 +60,8 @@ all: main-build
 main-build: Sensors\ Integration\ 04.elf secondary-outputs
 
 # Tool invocations
-Sensors\ Integration\ 04.elf Sensors\ Integration\ 04.map: $(OBJS) $(USER_OBJS) C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial\ Sensing\ Unit\STM\ Workspace\Sensors\ Integration\ 04\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Sensors Integration 04.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\THIRUVARULSELVAN\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\Sensors Integration 04\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sensors Integration 04.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Sensors\ Integration\ 04.elf Sensors\ Integration\ 04.map: $(OBJS) $(USER_OBJS) C:\Dutah\ Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Inertial\ Sensing\ Unit\STM\ Workspace\Sensors\ Integration\ 04\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Sensors Integration 04.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Dutah Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Inertial Sensing Unit\STM Workspace\Sensors Integration 04\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Sensors Integration 04.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

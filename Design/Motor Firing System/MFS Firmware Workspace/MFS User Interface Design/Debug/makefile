@@ -60,8 +60,8 @@ all: main-build
 main-build: MFS\ User\ Interface\ Design.elf secondary-outputs
 
 # Tool invocations
-MFS\ User\ Interface\ Design.elf: $(OBJS) $(USER_OBJS) C:\Users\student\STM32CubeIDE\workspace_1.8.1\MFS\ User\ Interface\ Design\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "MFS User Interface Design.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\student\STM32CubeIDE\workspace_1.8.1\MFS User Interface Design\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MFS User Interface Design.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+MFS\ User\ Interface\ Design.elf: $(OBJS) $(USER_OBJS) C:\Dutah\ Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Motor\ Firing\ System\MFS\ Firmware\ Workspace\MFS\ User\ Interface\ Design\STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "MFS User Interface Design.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Dutah Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Motor Firing System\MFS Firmware Workspace\MFS User Interface Design\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MFS User Interface Design.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

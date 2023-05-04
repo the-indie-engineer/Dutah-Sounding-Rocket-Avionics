@@ -63,8 +63,6 @@ void Error_Handler(void);
 #define MT_CS_GPIO_Port GPIOA
 #define NCP_DAT_Pin GPIO_PIN_11
 #define NCP_DAT_GPIO_Port GPIOA
-#define NCP_SCK_Pin GPIO_PIN_12
-#define NCP_SCK_GPIO_Port GPIOA
 #define HV_En_Pin GPIO_PIN_5
 #define HV_En_GPIO_Port GPIOB
 

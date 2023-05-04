@@ -1,0 +1,4 @@
+RTC.c:17:9:decToBcd	1
+RTC.c:22:5:bcdToDec	1
+RTC.c:27:6:Set_Time	1
+RTC.c:39:6:Get_Time	1

@@ -1,0 +1,2 @@
+NMEA.c:31:5:decodeGGA	24
+NMEA.c:196:5:decodeRMC	15

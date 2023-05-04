@@ -1,0 +1,33 @@
+!SESSION 2023-05-04 14:07:04.350 -----------------------------------------------
+eclipse.buildId=Version 1.12.1
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-05-04 14:07:12.478
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-05-04 14:07:12.478
+!MESSAGE Log4j2 initialized with config file C:\Dutah Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Parachute Deployement System\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-05-04 14:07:14.457
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-05-04 14:07:26.076
+!MESSAGE Indexed 'ParasuitDeploy' (21 sources, 107 headers) in 2.7 sec: 9,043 declarations; 35,011 references; 6 unresolved inclusions; 789 syntax errors; 1,121 unresolved names (2.5%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-05-04 14:07:49.178
+!MESSAGE Indexed 'tilt_sensor' (21 sources, 98 headers) in 1.11 sec: 7,830 declarations; 27,938 references; 6 unresolved inclusions; 292 syntax errors; 1,103 unresolved names (3%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-05-04 14:07:53.095
+!MESSAGE Indexed 'MPU6050_1' (23 sources, 101 headers) in 1.02 sec: 8,651 declarations; 39,065 references; 7 unresolved inclusions; 304 syntax errors; 1,335 unresolved names (2.7%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-05-04 14:27:08.715
+!MESSAGE Indexed 'Parachute Deploy Main' (23 sources, 102 headers) in 0.924 sec: 8,657 declarations; 40,579 references; 3 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.3%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2023-05-04 14:40:23.143
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2023-05-04 14:43:10.146
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 72000000; div: 36

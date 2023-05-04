@@ -1,0 +1,9 @@
+../Core/Src/main.c:85:6:MPU6050_Init	32	static
+../Core/Src/main.c:118:6:MPU6050_Read_Accel	32	static
+../Core/Src/main.c:143:6:MPU6050_Read_Gyro	32	static
+../Core/Src/main.c:166:6:Tilt_sensor	8	static
+../Core/Src/main.c:186:5:main	16	static
+../Core/Src/main.c:259:6:SystemClock_Config	88	static
+../Core/Src/main.c:307:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:341:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:381:6:Error_Handler	4	static

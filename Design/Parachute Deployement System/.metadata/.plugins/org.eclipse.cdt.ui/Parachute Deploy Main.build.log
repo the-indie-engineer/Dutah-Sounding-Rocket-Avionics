@@ -1,0 +1,10 @@
+14:43:03 **** Incremental Build of configuration Debug for project Parachute Deploy Main ****
+make -j16 all 
+arm-none-eabi-size   Parachute\ Deploy\ Main.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18120	    120	   1704	  19944	   4de8	Parachute Deploy Main.elf
+Finished building: default.size.stdout
+ 
+
+14:43:03 Build Finished. 0 errors, 0 warnings. (took 181ms)
+

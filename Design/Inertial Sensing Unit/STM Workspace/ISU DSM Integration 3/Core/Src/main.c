@@ -71,6 +71,7 @@ DMA_HandleTypeDef hdma_uart5_tx;
 
 /* USER CODE BEGIN PV */
 char rx_data[2];
+char tx_data[2];
 float Ax, Ay, Az, Gx, Gy, Gz;
 
 uint8_t err_gyro = 0;
@@ -139,7 +140,7 @@ char rxbuffer[BUFFER_SIZE];
 
 int writepos=0;
 
-tx_data[2];
+char tx_data[2];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -184,7 +185,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	timein.seconds = 0;
-
 
 
   /* USER CODE END 1 */
@@ -255,7 +255,10 @@ int main(void)
   	  Pressure = BMP180_GetPress(0);
   	  trans1.tlm1.Altitude = BMP180_GetAlt(0);
   }
-
+void isu_check()
+{
+	;
+}
   strcpy(buffer,"Hello Duta'h\n");
 
   /* USER CODE END 2 */
@@ -264,12 +267,43 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if(rx_data[0]=='T')
+	  /*if(rx_data[0]=='T')
 	  {
 		 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, 1);
 				 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_7, 1);
 				 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, 1);
-	  }
+	  }*/
+	  switch(rx_data[0])
+	  	  {
+	      case 'N':
+		  memset(tx_data,'S',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  break;
+	  	  case 'K':
+	  	  memset(tx_data,'J',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  break;
+	  	  case 'A':
+	  	  memset(tx_data,'B',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  isu_check();
+	  	  break;
+	  	  memset(tx_data,'D',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  case 'I':
+	  	  memset(tx_data,'L',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, 1);
+	  	  memset(tx_data,'\0',2);
+	  	  break;
+	  	  case 'F':
+	  	  memset(tx_data,'E',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  break;
+	  	  default:
+	  	  memset(tx_data,'\0',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  }
    HAL_Delay(5);
 	  if(Wait_for("GGA")==1)
 	  {
@@ -852,6 +886,8 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -903,6 +939,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(NCP_DAT_GPIO_Port, &GPIO_InitStruct);
 
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
