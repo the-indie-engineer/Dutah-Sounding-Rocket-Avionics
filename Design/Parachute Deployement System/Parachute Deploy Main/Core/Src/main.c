@@ -231,23 +231,16 @@ int main(void)
 	  // print the Acceleration and Gyro values on the LCD 20x4
 	  Avg1 = pow(pow(Ax,2)+pow(Ay,2)+pow(Az,2),0.5);
 	  Avg2 = pow(pow(Gx,2)+pow(Gy,2)+pow(Gz,2),0.5);
-	  if(Avg1 >= 2)
+	  if(Avg1 >= 2 && Avg2 >= 200 )
 	  {
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_7, 1);
 		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_SET);
 	  }
 	  else
 	  {
 		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, GPIO_PIN_RESET);
 	  }
-	  if(Avg2 >= 200)
-	  {
-		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
-	  }
-	  else
-	  {
-		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
-	  }
-	  HAL_Delay (10);  // wait for a while
+	  HAL_Delay (100);  // wait for a while
   }
   /* USER CODE END 3 */
 }

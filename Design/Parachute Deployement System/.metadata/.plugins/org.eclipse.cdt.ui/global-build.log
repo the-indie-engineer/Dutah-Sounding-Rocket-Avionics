@@ -12,3 +12,26 @@ arm-none-eabi-size   Parachute\ Deploy\ Main.elf
   18120	    120	   1704	  19944	   4de8	Parachute Deploy Main.elf
 Finished building: default.size.stdout
  
+13:49:37 **** Incremental Build of configuration Debug for project Parachute Deploy Main ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:232:11: warning: implicit declaration of function 'pow' [-Wimplicit-function-declaration]
+  232 |    Avg1 = pow(pow(Ax,2)+pow(Ay,2)+pow(Az,2),0.5);
+      |           ^~~
+../Core/Src/main.c:232:11: warning: incompatible implicit declaration of built-in function 'pow'
+../Core/Src/main.c:22:1: note: include '<math.h>' or provide a declaration of 'pow'
+   21 | #include "main.h"
+  +++ |+#include <math.h>
+   22 | 
+arm-none-eabi-gcc -o "Parachute Deploy Main.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Dutah Yukesh\Dutah-Sounding-Rocket-Avionics\Dutah-Sounding-Rocket-Avionics\Design\Parachute Deployement System\Parachute Deploy Main\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Parachute Deploy Main.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Parachute Deploy Main.elf
+ 
+arm-none-eabi-size   Parachute\ Deploy\ Main.elf 
+arm-none-eabi-objdump -h -S  Parachute\ Deploy\ Main.elf  > "Parachute Deploy Main.list"
+   text	   data	    bss	    dec	    hex	filename
+  18096	    120	   1704	  19920	   4dd0	Parachute Deploy Main.elf
+Finished building: default.size.stdout
+ 
+Finished building: Parachute Deploy Main.list
+ 

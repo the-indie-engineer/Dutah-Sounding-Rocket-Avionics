@@ -3,7 +3,7 @@ main.c:118:6:MPU6050_Read_Accel	1
 main.c:143:6:MPU6050_Read_Gyro	1
 main.c:166:6:Tilt_sensor	2
 main.c:186:5:main	3
-main.c:259:6:SystemClock_Config	3
-main.c:307:13:MX_I2C1_Init	2
-main.c:341:13:MX_GPIO_Init	1
-main.c:381:6:Error_Handler	1
+main.c:251:6:SystemClock_Config	3
+main.c:299:13:MX_I2C1_Init	2
+main.c:333:13:MX_GPIO_Init	1
+main.c:373:6:Error_Handler	1
