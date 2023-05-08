@@ -57,10 +57,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Tilt_Sensor_Pin GPIO_PIN_3
+#define Tilt_Sensor_GPIO_Port GPIOC
 #define CV_Enable_Pin GPIO_PIN_6
 #define CV_Enable_GPIO_Port GPIOA
 #define MT_CS_Pin GPIO_PIN_7
 #define MT_CS_GPIO_Port GPIOA
+#define Read_PDS_Pin GPIO_PIN_5
+#define Read_PDS_GPIO_Port GPIOC
 #define SD_CS_Pin GPIO_PIN_12
 #define SD_CS_GPIO_Port GPIOB
 #define Motor_Pin GPIO_PIN_6

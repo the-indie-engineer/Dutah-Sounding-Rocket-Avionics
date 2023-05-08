@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdbool.h>
+#include "math.h"
 #include "mpu6050.h"
 #include "MAX6675.h"
 #include "uartRingBuffer.h"
@@ -70,9 +71,10 @@ DMA_HandleTypeDef hdma_uart5_rx;
 DMA_HandleTypeDef hdma_uart5_tx;
 
 /* USER CODE BEGIN PV */
+bool pds_flag = 1;
 char rx_data[2];
 char tx_data[2];
-float Ax, Ay, Az, Gx, Gy, Gz;
+float Ax, Ay, Az, Gx, Gy, Gz, Avg1, Avg2;
 
 uint8_t err_gyro = 0;
 
@@ -108,6 +110,10 @@ float adc_err20=1.052;
 char GGA[100];
 char RMC[100];
 
+//Fall Detection
+bool tilt=0;
+bool fall=false;
+bool pds=0;
 GPSSTRUCT gpsData;
 
 //Nose Cone Pressure
@@ -275,28 +281,33 @@ void isu_check()
 	  }*/
 	  switch(rx_data[0])
 	  	  {
-	      case 'N':
+	      case 'N': //Initialization
 		  memset(tx_data,'S',2);
 	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
 	  	  break;
-	  	  case 'K':
+	  	  case 'K': //Standby
 	  	  memset(tx_data,'J',2);
 	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
 	  	  break;
-	  	  case 'A':
+	  	  case 'A': //Arming
 	  	  memset(tx_data,'B',2);
 	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
 	  	  isu_check();
 	  	  break;
 	  	  memset(tx_data,'D',2);
 	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
-	  	  case 'I':
+	  	  case 'I': //Launching
 	  	  memset(tx_data,'L',2);
 	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
 	  	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, 1);
 	  	  memset(tx_data,'\0',2);
 	  	  break;
-	  	  case 'F':
+	  	  case 'Y': //Kill_Switch
+	  	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_6, 0);
+	  	  memset(tx_data,'E',2);
+	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	  	  break;
+	  	  case 'F': //Error
 	  	  memset(tx_data,'E',2);
 	  	  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
 	  	  break;
@@ -325,6 +336,32 @@ void isu_check()
 
 	  MPU6050_Read_Accel (&Ax, &Ay, &Az);
 	  MPU6050_Read_Gyro(&Gx, &Gy, &Gz);
+	  //Fall Detection
+	 	  Avg1 = pow(pow(Ax,2)+pow(Ay,2)+pow(Az,2),0.5);
+	 	  Avg2 = pow(pow(Gx,2)+pow(Gy,2)+pow(Gz,2),0.5);
+	 	  tilt= HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_3); //tilt_sensor
+	 	  if(((Avg1 >= 1 && Avg2 >= 30) && tilt==0) || fall==true)
+	 	  {
+	 		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET); //Trigger PDS(Main Parachute)
+	 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
+	 	  }
+	 	  else
+	 	  {
+	 	  }
+	 	  HAL_Delay (100);  // wait for a while
+	 	  //PDS_read_sensor
+	 	  pds = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_5);
+	 	  if(pds==0)
+	 	  {
+	 		  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET); //Trigger PDS(Main Parachute)
+	 		  if(pds_flag==1){
+	 			  memset(tx_data,'R',2);
+	 			  HAL_UART_Transmit(&huart5, tx_data, sizeof(tx_data), 100);
+	 			  HAL_Delay(3000);
+	 			  memset(tx_data,'\0',2);
+	 			  pds_flag=0;
+	 		  }
+	 	  }
 	  //HAL_Delay(250);
 	  trans1.tlm1.Ax=Ax;
 	  trans1.tlm1.Ay=Ay;
@@ -368,15 +405,11 @@ void isu_check()
 		  f_lseek(&fil,writepos);
 		  fresult = f_write(&fil, tempbuff, bufsize(tempbuff), &bw);
 		  writepos+=bufsize(tempbuff);
-
 	  }
-
 	  f_close(&fil);
 	  fresult = f_mount(NULL, "/", 1);
 
 	  HAL_UART_Transmit(&huart4, "\n", 1, 100);
-
-
 
 
 
@@ -905,6 +938,12 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, Motor_Pin|Drougue_Parachute_Pin|Main_Parachute_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin : Tilt_Sensor_Pin */
+  GPIO_InitStruct.Pin = Tilt_Sensor_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(Tilt_Sensor_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : CV_Enable_Pin */
   GPIO_InitStruct.Pin = CV_Enable_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -918,6 +957,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : Read_PDS_Pin */
+  GPIO_InitStruct.Pin = Read_PDS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(Read_PDS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SD_CS_Pin HV_En_Pin */
   GPIO_InitStruct.Pin = SD_CS_Pin|HV_En_Pin;
