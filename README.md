@@ -4,6 +4,9 @@
 
 This repository presents the design and development of a comprehensive data acquisition and recovery system for model-sounding rockets using the STM32 microcontroller. The system includes various sensors such as pressure, humidity, atmospheric temperature, motor temperature, gyro, attitude, altitude, vibration, voltage, and current sensors to collect flight data. The collected data is stored on an SD card module and transmitted to the ground station using an RF link. Additionally, a GPS module is integrated into the system to track the rocket's position and altitude during flight. The system also includes an onboard ignition system and wireless launch sequence. The ground control system (GCS) enables users to remotely control the launch sequence and displays the motor firing system status. The GCS also provides a wireless interface for transmitting the launch sequence to the onboard ignition system. The parachute deployment system is activated based on the altitude sensor data to recover the rocket after landing. The system has been tested with multiple conditions, demonstrating accurate data collection and recovery capabilities. The presented system proposes a reliable and efficient solution for model-sounding rocket data acquisition, recovery, and launch control.
 
+![Dutah](https://github.com/the-indie-engineer/Dutah-Sounding-Rocket-Avionics/assets/109530150/12a916fd-abd1-4cff-9f7c-774324a32a4b)
+
+
 <h2>System Descriptions</h2>
 
 <h2>Central Processing Module:</h2>
