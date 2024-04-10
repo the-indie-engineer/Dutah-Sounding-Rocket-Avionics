@@ -1,2 +1,36 @@
-Design/Inertial Sensing Unit/STM Workspace/.metadata
-Design/Motor Firing System/MFS Firmware Workspace/.metadata
+# STM32CubeIDE specific files
+.settings/
+.project
+.cproject
+.metadata/
+RemoteSystemsTempFiles/
+ExternalToolBuilders/
+Debug/
+Release/
+*.launch
+*.markers
+
+# Compiled files
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+
+# Dependency files
+*.d
+
+# Debug/Log files
+*.log
+
+# IDE specific files
+.vscode/
+.idea/
+*.iml
+
+# macOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
